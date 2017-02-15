@@ -1,0 +1,48 @@
+type mnld, domain;
+type mnld_exec, exec_type, file_type;
+
+init_daemon_domain(mnld)
+
+net_domain(mnld)
+
+allow mnld agpsd_data_file:dir { rw_dir_perms };
+allow mnld agpsd_data_file:sock_file { setattr create rw_file_perms unlink };
+allow mnld block_device:dir search;
+allow mnld fuse:dir add_name;
+allow mnld fuse:dir search;
+allow mnld fuse:dir write;
+allow mnld fuse:dir { read remove_name create open };
+allow mnld fuse:file create;
+allow mnld fuse:file create_file_perms;
+allow mnld fuse:file rw_file_perms;
+allow mnld gps_data_file:dir rw_dir_perms;
+allow mnld gps_data_file:file { rw_file_perms create unlink setattr };
+allow mnld gps_device:chr_file { rw_file_perms };
+allow mnld gps_prop:property_service set;
+allow mnld init:udp_socket { read write };
+allow mnld init:unix_stream_socket connectto;
+allow mnld mnld_data_file:dir { create add_name remove_name search write };
+allow mnld mnld_data_file:sock_file { rw_file_perms setattr create unlink };
+allow mnld mnld_device:chr_file { rw_file_perms };
+allow mnld mnld_exec:file { read open getattr execute execute_no_trans};
+allow mnld mtk_agpsd:unix_dgram_socket sendto;
+allow mnld node:tcp_socket node_bind;
+allow mnld nvram_data_file:dir { create rw_dir_perms };
+allow mnld nvram_data_file:file { create rw_file_perms };
+allow mnld nvram_device:chr_file ioctl;
+allow mnld nvram_device:chr_file open;
+allow mnld nvram_device:chr_file{read write};
+allow mnld platformblk_device:blk_file { rw_file_perms };
+allow mnld platformblk_device:dir search;
+allow mnld port:tcp_socket name_bind;
+allow mnld property_socket:sock_file write;
+allow mnld self:tcp_socket { accept listen bind create setopt };
+allow mnld sysfs:file { open read write };
+allow mnld system_data_file:dir { create rw_dir_perms };
+allow mnld system_data_file:dir rw_dir_perms;
+allow mnld system_data_file:dir create_dir_perms;
+allow mnld system_data_file:file { open read };
+allow mnld system_data_file:sock_file create_file_perms;
+allow mnld system_server:unix_dgram_socket sendto;
+allow mnld tmpfs:lnk_file { read create open };
+allow mnld ttyGS_device:chr_file { read write };

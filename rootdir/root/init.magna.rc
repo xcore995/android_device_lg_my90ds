@@ -1,0 +1,12 @@
+# sprout storage specific rc file.
+import /init.magna_common.rc
+
+on init
+
+
+    # Support legacy paths
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard0
+
+    # By default, primary storage is physical
+    setprop ro.vold.primary_physical 1

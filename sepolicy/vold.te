@@ -1,0 +1,21 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK14.37
+# Operation : Migration 
+# Purpose : Access 'OMADM_USB' nvram
+allow vold nvram_data_file:file { read getattr open write create setattr};
+allow vold nvram_data_file:dir { write add_name create getattr setattr search};
+allow vold nvram_device:chr_file { read write open };
+allow vold bt_ver_cfg:file { open read write getattr };
+allow vold platformblk_device:blk_file { read write open };
+allow vold platformblk_device:dir search;
+allow vold proc:file write;
+
+# Date : WK14.38
+# Operation : Migration 
+# Purpose : encrypt phone
+allow vold misc_device:chr_file { write open };
+allow vold platformblk_device:blk_file { ioctl getattr };
+allow vold zram0_device:blk_file getattr;

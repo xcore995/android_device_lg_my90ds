@@ -23,7 +23,7 @@ on init
 
 on fs
     write /proc/bootprof "INIT:eMMC:Mount_All_START"
-    mount_all /fstab.sprout
+    mount_all /fstab.magna
     write /proc/bootprof "INIT:eMMC:Mount_All_END"
 
 # mount different fs end

@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-extern "C" void _ZN7android14SurfaceControl28setPositionAppliesWithResizeEv(){}
-extern "C" void _ZN7android21SurfaceComposerClient17setDisplaySurfaceERKNS_2spINS_7IBinderEEERKNS1_INS_22IGraphicBufferProducerEEE(){}
-extern "C" void _ZN7android11AudioSystem23setAudioSessionCallbackEPFviRNS_2spINS_16AudioSessionInfoEEEbE(){}
-extern "C" void _ZN7android11AudioSystem17listAudioSessionsE19audio_stream_type_tRNS_6VectorINS_2spINS_16AudioSessionInfoEEEEE(){}
+extern "C" void _Z12is_MY_LOG_ENv(){}
+extern "C" void _Z9MY_LOG_ENb(){}
  

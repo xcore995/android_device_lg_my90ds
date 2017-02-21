@@ -92,6 +92,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/root/init.magna.usb.rc:root/init.magna.usb.rc \
     $(LOCAL_PATH)/rootdir/root/init.magna.rc:root/init.magna.rc \
     $(LOCAL_PATH)/rootdir/root/fstab.magna:root/fstab.magna
+    
+# etc
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs,system/etc)
+
+    
 
 DEVICE_PACKAGE_OVERLAYS := device/lge/magna/overlay
 
@@ -112,7 +117,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	Snap
 
-
+# Web browser
+PRODUCT_PACKAGES += \
+	Gello
 
 # Wifi
 PRODUCT_PACKAGES += \

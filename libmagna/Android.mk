@@ -16,8 +16,7 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
-    sprout_ril.cpp \
-	audio.cpp
+    sprout_ril.cpp
 
 LOCAL_SHARED_LIBRARIES := libbinder
 LOCAL_MODULE := libmagna

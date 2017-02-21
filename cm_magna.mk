@@ -98,7 +98,7 @@ PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs,syst
 
     
 
-DEVICE_PACKAGE_OVERLAYS := device/lge/magna/overlay
+DEVICE_PACKAGE_OVERLAYS := device/lg/magna/overlay
 
 PRODUCT_PACKAGES += \
     audio.a2dp.default \

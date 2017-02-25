@@ -12,7 +12,7 @@ Storage | 8GB
 Battery | 2540 mAh
 Display | 5" 1280 x 720 px
 Camera  | 8MPx, LED Flash
-Camera  | 5MPx, LED Flash
+Camera  | 5MPx
 
 ![LG Magna](http://cdn.gadgets360.com/content/assets/products/lg-magna-2411_480X960_1439192736.jpg)
 

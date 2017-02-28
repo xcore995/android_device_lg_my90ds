@@ -16,4 +16,4 @@ Camera  | 5MPx, LED Flash
 
 ![LG Magna](http://cdn.gadgets360.com/content/assets/products/lg-magna-2411_480X960_1439192736.jpg)
 
-This branch is for building Lineage 13 (or Android Marshmallow 6.0.1 AOSP based roms) ROMS.
+This branch is for building Lineage 14 (or Android Marshmallow 6.0.1 AOSP based roms) ROMS.

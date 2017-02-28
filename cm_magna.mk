@@ -93,10 +93,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/root/init.magna.rc:root/init.magna.rc \
     $(LOCAL_PATH)/rootdir/root/fstab.magna:root/fstab.magna
     
-# etc
-PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs,system/etc)
-
-    
+   
 
 DEVICE_PACKAGE_OVERLAYS := device/lg/magna/overlay
 

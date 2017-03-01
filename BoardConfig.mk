@@ -33,11 +33,11 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_
 #BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/tools/bootimg.mk xcore: No mtk-header
 MTK_PLATFORM := mt6582
 MTK_PROJECT := magna
-TARGET_KERNEL_SOURCE := kernel/lg/magna
-TARGET_KERNEL_CONFIG := magna_defconfig
-BOARD_KERNEL_CMDLINE :=
+#TARGET_KERNEL_SOURCE := kernel/lg/magna
+#TARGET_KERNEL_CONFIG := magna_defconfig
+#BOARD_KERNEL_CMDLINE :=
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x00000100
-#TARGET_PREBUILT_KERNEL := device/lg/magna/kernel
+TARGET_PREBUILT_KERNEL := device/lg/magna/kernel
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 
@@ -75,8 +75,7 @@ DISABLE_DEXPREOPT := true
 
 BLOCK_BASED_OTA := false
 
-ANDROID_COMPILE_WITH_JACK := false
-DEFAULT_JACK_ENABLED=false
+
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -104,10 +103,8 @@ WIFI_DRIVER_FW_PATH_PARAM:="/dev/wmtWifi"
 WIFI_DRIVER_FW_PATH_STA:=STA
 WIFI_DRIVER_FW_PATH_AP:=AP
 WIFI_DRIVER_FW_PATH_P2P:=P2P
- 
-# Enable Minikin text layout engine (will be the default soon)
-USE_MINIKIN := true
-MALLOC_IMPL := dlmalloc
+
+USE_NINJA=false
 
 # FRAMEWORK WITH OUT SYNC
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true

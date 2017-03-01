@@ -5,7 +5,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Call device specific makefile
-$(call inherit-product, device/lg/magna/cm_magna.mk)
+$(call inherit-product, device/lg/magna/lineage_magna.mk)
 
 LOCAL_PATH := device/lg/magna
 
@@ -18,7 +18,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.io.scheduler=bfq    
        
-PRODUCT_NAME := cm_magna
+PRODUCT_NAME := lineage_magna
 PRODUCT_DEVICE := magna
 PRODUCT_BRAND := LG
 PRODUCT_MANUFACTURER := LG

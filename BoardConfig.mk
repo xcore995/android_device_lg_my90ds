@@ -75,7 +75,8 @@ DISABLE_DEXPREOPT := true
 
 BLOCK_BASED_OTA := false
 
-
+#ANDROID_COMPILE_WITH_JACK := false
+#DEFAULT_JACK_ENABLED=false
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -103,6 +104,10 @@ WIFI_DRIVER_FW_PATH_PARAM:="/dev/wmtWifi"
 WIFI_DRIVER_FW_PATH_STA:=STA
 WIFI_DRIVER_FW_PATH_AP:=AP
 WIFI_DRIVER_FW_PATH_P2P:=P2P
+
+
+# The gps config appropriate for this device
+#$(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 USE_NINJA=false
 

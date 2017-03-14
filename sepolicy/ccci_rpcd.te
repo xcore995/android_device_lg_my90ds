@@ -1,0 +1,16 @@
+type ccci_rpcd, domain;
+type ccci_rpcd_exec, exec_type, file_type;
+init_daemon_domain(ccci_rpcd)
+allow ccci_rpcd ccci_rpcd_exec:file { read open getattr execute execute_no_trans};
+allow ccci_rpcd ccci_device:chr_file { rw_file_perms };
+allow ccci_rpcd nvram_data_file:dir { create rw_dir_perms };
+allow ccci_rpcd property_socket:sock_file rw_file_perms;
+allow ccci_rpcd sysfs_wake_lock:file { rw_file_perms };
+allow ccci_rpcd init:unix_stream_socket connectto;
+allow ccci_rpcd ccci_decrypt_state_prop:property_service set;
+allow ccci_rpcd sysfs_wake_lock:file { rw_file_perms };
+allow ccci_rpcd nvram_data_file:file { unlink create rw_file_perms };
+allow ccci_rpcd protect_f_data_file:dir { rw_dir_perms };
+allow ccci_rpcd protect_s_data_file:dir { rw_dir_perms };
+allow ccci_rpcd protect_f_data_file:file { rw_file_perms };
+allow ccci_rpcd protect_s_data_file:file { rw_file_perms };

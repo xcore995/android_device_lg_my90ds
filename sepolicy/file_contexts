@@ -1,6 +1,7 @@
 /system/bin/mtk_agpsd         u:object_r:mtk_agpsd_exec:s0
 /system/bin/6620_launcher     u:object_r:conn_launcher_exec:s0
 /system/bin/ccci_fsd          u:object_r:ccci_fsd_exec:s0
+/system/bin/ccci_rpcd          u:object_r:ccci_rpcd_exec:s0
 /system/bin/ccci_mdinit       u:object_r:ccci_mdinit_exec:s0
 /system/bin/drvbd             u:object_r:drvbd_exec:s0
 /system/bin/nvram_agent_binder u:object_r:nvram_agent_binder_exec:s0

@@ -80,7 +80,7 @@ ril.current.share_modem=2
 ril.radiooff.poweroffMD=0
 
 # temporary enables NAV bar (soft keys)
-qemu.hw.mainkeys=1
+qemu.hw.mainkeys=0
 
 ro.crypto.state=unencrypted
 

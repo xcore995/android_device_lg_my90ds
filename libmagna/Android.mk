@@ -16,9 +16,10 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
-    sprout_ril.cpp
+    ril.cpp \
+    ssl.c
 
-LOCAL_SHARED_LIBRARIES := libbinder
+LOCAL_SHARED_LIBRARIES := libbinder libcrypto liblog
 LOCAL_MODULE := libmagna
 LOCAL_MODULE_TAGS := optional
 

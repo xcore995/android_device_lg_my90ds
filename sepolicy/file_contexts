@@ -3,6 +3,7 @@
 /system/bin/ccci_fsd          u:object_r:ccci_fsd_exec:s0
 /system/bin/ccci_rpcd          u:object_r:ccci_rpcd_exec:s0
 /system/bin/ccci_mdinit       u:object_r:ccci_mdinit_exec:s0
+/system/bin/lgpserver         u:object_r:lgpserver_exec:s0
 /system/bin/drvbd             u:object_r:drvbd_exec:s0
 /system/bin/nvram_agent_binder u:object_r:nvram_agent_binder_exec:s0
 /system/bin/nvram_daemon u:object_r:nvram_daemon_exec:s0

@@ -1,0 +1,7 @@
+type lgpserver, domain;
+type lgpserver_exec, exec_type, file_type;
+init_daemon_domain(lgpserver)
+allow lgpserver lgpserver_exec:file { read open getattr execute execute_no_trans};
+allow lgpserver ccci_device:chr_file { rw_file_perms };
+allow lgpserver nvram_data_file:dir { create rw_dir_perms };
+allow lgpserver property_socket:sock_file rw_file_perms;

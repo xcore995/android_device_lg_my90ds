@@ -1,4 +1,3 @@
-# sprout storage specific rc file.
 import /init.magna_common.rc
 
 on init

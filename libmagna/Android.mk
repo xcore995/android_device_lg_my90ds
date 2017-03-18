@@ -17,9 +17,11 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
     ril.cpp \
-    ssl.c
+    ssl.c \
+    wvm.cpp \
+    ui.cpp
 
-LOCAL_SHARED_LIBRARIES := libbinder libcrypto liblog
+LOCAL_SHARED_LIBRARIES := libbinder libcrypto liblog libstagefright_foundation libui libgui
 LOCAL_MODULE := libmagna
 LOCAL_MODULE_TAGS := optional
 

@@ -1420,17 +1420,18 @@ diff --git a/services/camera/libcameraservice/Android.mk b/services/camera/libca
 index ab09cb3..0d4642b 100644
 --- a/services/camera/libcameraservice/Android.mk
 +++ b/services/camera/libcameraservice/Android.mk
-@@ -76,6 +76,10 @@ LOCAL_C_INCLUDES += \
+@@ -73,6 +73,11 @@ LOCAL_C_INCLUDES += \
      frameworks/native/include/media/openmax \
      external/jpeg
  
 +ifeq ($(MTK_HARDWARE),true)
 +    LOCAL_SRC_FILES += mediatek/CameraService.cpp
 +    LOCAL_SRC_FILES += mediatek/api1/CameraClient.cpp
-+endif
- 
- LOCAL_CFLAGS += -Wall -Wextra
- 
++endif 
++
+ LOCAL_EXPORT_C_INCLUDE_DIRS := \
+     frameworks/av/services/camera/libcameraservice
+
 diff --git a/services/camera/libcameraservice/CameraService.h b/services/camera/libcameraservice/CameraService.h
 index 53233bd..83c8195 100644
 --- a/services/camera/libcameraservice/CameraService.h

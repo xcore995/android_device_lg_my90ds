@@ -1,5 +1,5 @@
 import /init.magna_common.rc
-
+import /init.zeta0y_core.rc
 on init
 
 
@@ -7,5 +7,3 @@ on init
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
-    # By default, primary storage is physical
-    setprop ro.vold.primary_physical 1

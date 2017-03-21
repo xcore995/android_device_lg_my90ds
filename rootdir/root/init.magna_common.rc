@@ -158,7 +158,8 @@ on post-fs-data
     #insmod /system/lib/modules/m4u.ko
     chmod 0440 /dev/M4U_device
     chown system camera /dev/M4U_device
-
+    #set mlock limit to infinate (for m4u operation)
+    setrlimit 8 -1 -1
     # Start sensor
     chmod 0660 /dev/hwmsensor
     chmod 0660 /dev/gyroscope
@@ -358,7 +359,7 @@ on post-fs-data
     chmod 0664 /dev/TV-out
 
     #HDMI
-    chmod 0664 /dev/hdmitx
+   #chmod 0664 /dev/hdmitx
 
     # JPEG
     chmod 0440 /dev/mtk_jpeg
@@ -369,6 +370,7 @@ on post-fs-data
 
     # DISP
     chmod 0440 /dev/mtk_disp
+    chown system system /dev/mtk_disp
 
     #Camera
     chmod 0660 /dev/camera-sysram
@@ -377,14 +379,19 @@ on post-fs-data
     chmod 0660 /dev/kd_camera_hw
     chmod 0660 /dev/kd_camera_flashlight
     chmod 0660 /dev/kd_camera_hw_bus2
-    chmod 0660 /dev/FM50AF    
-    chmod 0660 /dev/DW9714AF
-    chmod 0660 /dev/DW9718AF    
-    chmod 0660 /dev/GAF001AF
-    chmod 0660 /dev/GAF002AF
-    chmod 0660 /dev/GAF008AF
+    chmod 0660 /dev/FM50AF
+    #LGE_CHANGE_S: [2014-11-18] kipo.yun@lge.com, Add camera
+    chmod 0660 /dev/DW9718AF
+	chmod 0660 /dev/DW9714AF
+    #LGE_CHANGE_E: [2014-11-18] kipo.yun@lge.com, Add camera
+    #LGE_CHANGE_S: [2014-11-28] yonghwan.lym@lge.com, OV8858 lens driver change.
+    chmod 0660 /dev/DW9714A
+    #LGE_CHANGE_E: [2014-11-28] yonghwan.lym@lge.com, OV8858 lens driver change.
     chmod 0660 /dev/CAM_CAL_DRV
     chmod 0660 /dev/EEPROM_M24C08F
+    #LGE_CHANGE_S: [2015-01-09] yonghwan.lym@lge.com, soc sensor Manual Flicker
+    chown media media /sys/devices/platform/mt-i2c.1/i2c-1/1-007f/antibanding
+    #LGE_CHANGE_E: [2015-01-09] yonghwan.lym@lge.com, soc sensor Manual Flicker
 
     chown system camera /dev/camera-sysram
     chown system camera /dev/camera-isp
@@ -392,12 +399,14 @@ on post-fs-data
     chown system camera /dev/kd_camera_hw
     chown system camera /dev/kd_camera_flashlight
     chown system camera /dev/kd_camera_hw_bus2
-    chown system camera /dev/FM50AF    
-    chown system camera /dev/DW9714AF
-    chown system camera /dev/DW9718AF    
-    chown system camera /dev/GAF001AF
-    chown system camera /dev/GAF002AF
-    chown system camera /dev/GAF008AF
+    chown system camera /dev/FM50AF
+    #LGE_CHANGE_S: [2014-11-18] kipo.yun@lge.com, Add camera
+    chown system camera /dev/DW9718AF
+	chown system camera /dev/DW9714AF
+    #LGE_CHANGE_E: [2014-11-18] kipo.yun@lge.com, Add camera
+    #LGE_CHANGE_S: [2014-11-28] yonghwan.lym@lge.com, OV8858 lens driver change.
+    chown system camera /dev/DW9714A
+    #LGE_CHANGE_E: [2014-11-28] yonghwan.lym@lge.com, OV8858 lens driver change.
     chown system camera /dev/CAM_CAL_DRV
     chown system camera /dev/EEPROM_M24C08F
 
@@ -431,6 +440,9 @@ on post-fs-data
     chmod 666 /dev/mali
     chown system graphics /dev/mali
 
+    #BT SCO CVSD, for MT6572 and MT6582 CVSD codec on AP
+    chmod 0660 /dev/ebc
+    chown system media /dev/ebc
 
 
     #sbchk
@@ -447,7 +459,7 @@ on post-fs-data
 #/dev/ttyMT2 for Connectivity BT/FM/GPS usage
     chmod 0660 /dev/ttyMT2
     chown system system /dev/ttyMT2
-
+chown system system /proc/secmem0
 # GPS
     chown gps gps /sys/devices/virtual/gpsdrv/gps/pwrctl
     chown gps gps /sys/devices/virtual/gpsdrv/gps/suspend
@@ -493,6 +505,7 @@ on boot
     write /proc/sys/vm/dirty_writeback_centisecs 300
 
     chmod 0660 /sys/power/autosleep
+    chown system radio /sys/class/leds/lcd-backlight/brightness
     chmod 0664 /sys/class/leds/lcd-backlight/brightness
 
     chown system system /sys/devices/system/cpu/cpufreq/hotplug/cpu_num_base
@@ -504,6 +517,8 @@ on boot
 
     chown root   system /sys/kernel/debug/binder/transaction_log_enable
 
+    chown system /sys/module/mlog/parameters/do_mlog
+    chown system /sys/module/mlog/parameters/timer_intval
     chown root   radio  /sys/class/leds/lcd-backlight/duty
     chown root   radio  /sys/class/leds/lcd-backlight/div
     chown system system /sys/class/leds/lcd-backlight/trigger
@@ -512,6 +527,8 @@ on boot
     chown system system /sys/class/leds/jogball-backlight/trigger
     chown system system /sys/class/leds/red/trigger
     chown system system /sys/class/leds/green/trigger
+    write /sys/devices/platform/leds-mt65xx/leds/red/brightness 250
+    write /sys/devices/platform/leds-mt65xx/leds/red/brightness 0
     chown system system /sys/class/leds/blue/trigger
 
     # Permission for hibernation
@@ -579,8 +596,8 @@ on boot
 #Define device for ATCID
     chmod 660 /dev/ttyGS0
     chown system /dev/ttyGS0
-    chmod 660 /dev/ttyGS1
-    chown system /dev/ttyGS1
+    chmod 660 /dev/ttyGS4
+    chown system /dev/ttyGS4
 
     class_start default
 
@@ -828,7 +845,7 @@ service akmd8963 /system/bin/akmd8963
     group system
 
 service bmm050d /system/bin/bmm050d
-    disabled
+	class main
     user system
     group system
 

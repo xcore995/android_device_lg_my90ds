@@ -1,2 +1,0 @@
-cd bionic/libc/
-git revert bba395492a0bb6ee72d0ad8e4d468e852392220e

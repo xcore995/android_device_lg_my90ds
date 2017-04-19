@@ -8,6 +8,8 @@
 /system/bin/nvram_agent_binder u:object_r:nvram_agent_binder_exec:s0
 /system/bin/nvram_daemon u:object_r:nvram_daemon_exec:s0
 /system/xbin/mnld             u:object_r:mnld_exec:s0
+/system/bin/bmm050d           u:object_r:bmm050d_exec:s0
+/system/bin/permission_check  u:object_r:permission_check_exec:s0
 /system/bin/msensord          u:object_r:msensord_exec:s0
 /system/bin/thermal_manager   u:object_r:thermal_manager_exec:s0
 /system/bin/wmt_loader        u:object_r:wmt_loader_exec:s0
@@ -20,6 +22,9 @@
 /system/bin/mdlogger u:object_r:mdlogger_exec:s0
 /system/bin/netdiag u:object_r:netdiag_exec:s0
 /system/bin/meta_tst u:object_r:meta_tst_exec:s0
+/enableswap.sh u:object_r:enableswap_exec:s0
+/system/bin/tiny_mkswap u:object_r:tiny_mkswap_exec:s0
+/system/bin/tiny_swapon u:object_r:tiny_swapon_exec:s0
 /dev/socket/netdiag(/.*)? u:object_r:netdiag_socket:s0
 
 /dev/wmtWifi          u:object_r:wmtWifi_device:s0

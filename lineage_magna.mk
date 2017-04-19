@@ -91,6 +91,7 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 # RAMDISK
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/root/init.magna_common.rc:root/init.magna_common.rc \
+    $(LOCAL_PATH)/rootdir/root/enableswap.sh:root/enableswap.sh \
     $(LOCAL_PATH)/rootdir/root/sbin/multi_init:root/sbin/multi_init \
     $(LOCAL_PATH)/rootdir/root/init.protect.rc:root/init.protect.rc \
     $(LOCAL_PATH)/rootdir/root/init.modem.rc:root/init.modem.rc \
@@ -111,7 +112,7 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     tinymix
 
-USE_CUSTOM_AUDIO_POLICY := 1
+
 
 # FMRadio
 PRODUCT_PACKAGES += \
@@ -151,7 +152,8 @@ PRODUCT_PACKAGES += \
     libxlog
     
 PRODUCT_PACKAGES += \
-    libmagna
+    libmagna \
+    liblights
 
     
 

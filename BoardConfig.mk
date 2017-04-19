@@ -105,6 +105,7 @@ WIFI_DRIVER_FW_PATH_STA:=STA
 WIFI_DRIVER_FW_PATH_AP:=AP
 WIFI_DRIVER_FW_PATH_P2P:=P2P
 
+USE_LEGACY_AUDIO_POLICY=true
 
 # The gps config appropriate for this device
 #$(call inherit-product, device/common/gps/gps_us_supl.mk)
@@ -131,15 +132,13 @@ TARGET_GLOBAL_CPPFLAGS += -DANDROID_MULTI_SIM
 # RIL
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/
 
-
-
 # Flags
 TARGET_GLOBAL_CFLAGS   += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_USERIMAGES_USE_EXT4:=true
 USE_CAMERA_STUB := true
 
-POLICYVERS := 29
+POLICYVERS := 30
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \

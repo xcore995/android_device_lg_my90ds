@@ -1,0 +1,6 @@
+type tiny_swapon, domain;
+type tiny_swapon_exec, exec_type, file_type;
+
+init_daemon_domain(tiny_swapon)
+allow tiny_swapon tiny_swapon_exec:file { read open getattr execute execute_no_trans};
+

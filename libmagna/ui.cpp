@@ -78,4 +78,3 @@ extern "C" {
         _ZN7android5Fence4waitEi(static_cast<int>(timeout));
     }
 }
-

@@ -527,8 +527,10 @@ on boot
     chown system system /sys/class/leds/jogball-backlight/trigger
     chown system system /sys/class/leds/red/trigger
     chown system system /sys/class/leds/green/trigger
+    #XCORE: Disable led blink at startup
     write /sys/devices/platform/leds-mt65xx/leds/red/brightness 250
     write /sys/devices/platform/leds-mt65xx/leds/red/brightness 0
+    #XCORE: END
     chown system system /sys/class/leds/blue/trigger
 
     # Permission for hibernation

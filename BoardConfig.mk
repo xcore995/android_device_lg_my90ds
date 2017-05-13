@@ -119,6 +119,8 @@ MTK_HARDWARE := true
 # FRAMEWORK WITH OUT SYNC
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
+TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap2wake"
+
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
 

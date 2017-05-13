@@ -115,6 +115,9 @@
          in darkness (although they may not be visible in a bright room). -->
     <integer name="config_screenBrightnessDark">10</integer>
 
+    <!-- Whether device supports double tap to wake -->
+    <bool name="config_supportDoubleTapWake">true</bool>
+
     <!-- This string array should be overridden by the device to present a list of network
          attributes.  This is used by the connectivity manager to decide which networks can coexist
          based on the hardware -->

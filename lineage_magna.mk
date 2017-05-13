@@ -155,6 +155,9 @@ PRODUCT_PACKAGES += \
     libmagna \
     liblights
 
+PRODUCT_PACKAGES += \
+	OTAUpdates
+
     
 
     

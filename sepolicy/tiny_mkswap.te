@@ -3,4 +3,4 @@ type tiny_mkswap_exec, exec_type, file_type;
 
 init_daemon_domain(tiny_mkswap)
 allow tiny_mkswap tiny_mkswap_exec:file { read open getattr execute execute_no_trans};
-
+allow tiny_mkswap ram_device:blk_file { open read write };

@@ -122,9 +122,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	Snap
 
-# Web browser
-PRODUCT_PACKAGES += \
-	Gello
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -155,8 +152,6 @@ PRODUCT_PACKAGES += \
     libmagna \
     liblights
 
-PRODUCT_PACKAGES += \
-	OTAUpdates
 
     
 

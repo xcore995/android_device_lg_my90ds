@@ -98,6 +98,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/root/factory_init.rc:root/factory_init.rc \
     $(LOCAL_PATH)/rootdir/root/ueventd.magna.rc:root/ueventd.magna.rc \
     $(LOCAL_PATH)/rootdir/root/init.magna.usb.rc:root/init.magna.usb.rc \
+    $(LOCAL_PATH)/rootdir/root/init.zeta0y_core.rc:root/init.zeta0y_core.rc \
     $(LOCAL_PATH)/rootdir/root/init.magna.rc:root/init.magna.rc \
     $(LOCAL_PATH)/rootdir/root/fstab.magna:root/fstab.magna
     
@@ -152,8 +153,7 @@ PRODUCT_PACKAGES += \
     libmagna \
     liblights
 
-
-    
+   
 
     
  
@@ -177,6 +177,17 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
 	ro.hardware=sprout \
 	ro.telephony.ril_class=MT6735 \
 	ro.telephony.ril.config=fakeiccid 
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    pm.dexopt.first-boot=verify-at-runtime \
+    pm.dexopt.boot=verify-at-runtime \
+    pm.dexopt.install=interpret-only \
+    pm.dexopt.bg-dexopt=speed-profile \
+    pm.dexopt.ab-ota=speed-profile \
+    pm.dexopt.nsys-library=speed \
+    pm.dexopt.shared-apk=speed \
+    pm.dexopt.forced-dexopt=speed \
+    pm.dexopt.core-app=speed
 
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-filter=speed \

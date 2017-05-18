@@ -105,7 +105,8 @@ WIFI_DRIVER_FW_PATH_STA:=STA
 WIFI_DRIVER_FW_PATH_AP:=AP
 WIFI_DRIVER_FW_PATH_P2P:=P2P
 
-USE_LEGACY_AUDIO_POLICY=true
+#USE_LEGACY_AUDIO_POLICY=true
+USE_CUSTOM_AUDIO_POLICY := 1
 
 # The gps config appropriate for this device
 #$(call inherit-product, device/common/gps/gps_us_supl.mk)
@@ -145,3 +146,5 @@ POLICYVERS := 30
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/lg/magna/sepolicy
+
+$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)

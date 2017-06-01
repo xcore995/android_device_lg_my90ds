@@ -14,12 +14,5 @@
 # limitations under the License.
 #
 
-# This file is executed by build/envsetup.sh, and can use anything
-# defined in envsetup.sh.
-#
-# In particular, you can add lunch options with the add_lunch_combo
-# function: add_lunch_combo generic-eng
-
-for var in eng user userdebug; do
-  add_lunch_combo lineage_magna-$var
-done
+add_lunch_combo lineage_my90ds-userdebug
+add_lunch_combo lineage_my90ds-eng

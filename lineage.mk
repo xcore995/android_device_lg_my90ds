@@ -1,42 +1,25 @@
-# Full base
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-
-# Needed stuff
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-
-# Call device specific makefile
-$(call inherit-product, device/lg/magna/lineage_magna.mk)
-
-LOCAL_PATH := device/lg/magna
-
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_FINGERPRINT=6.0.1/MRA58K/1619509518de2:user/release-keys PRIVATE_BUILD_DESC="my90ds_global_com-user 6.0 MRA58K 1619509518de2 release-keys"
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_DEVICE="magna"
-
-# IO Scheduler
-PRODUCT_PROPERTY_OVERRIDES += \
-    sys.io.scheduler=bfq    
-       
-PRODUCT_NAME := lineage_magna
-PRODUCT_DEVICE := magna
-PRODUCT_BRAND := LG
-PRODUCT_MANUFACTURER := LG
-PRODUCT_MODEL := h502f
-
-# Correct bootanimation size for the screen
+# Boot animation
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
 
-# set locales & aapt config.
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
+PRODUCT_LOCALES := en_US ru_RU
 
 # Inherit some common CM stuff.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# Call device specific makefile
+$(call inherit-product, device/lg/my90ds/device.mk)
 
-CM_BUILD := magna
-
-ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
-ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
 
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
+## Device identifier. This must come after all inclusions
+PRODUCT_NAME := lineage_my90ds
+PRODUCT_BRAND := lge
+PRODUCT_MODEL := LG-H502
+PRODUCT_MANUFACTURER := LGE
+PRODUCT_DEVICE := my90ds
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=my90ds_global_com \
+    BUILD_FINGERPRINT=lge/my90ds_global_com/my90ds:5.0.1/LRX21Y/150751559d830:user/release-keys \
+    PRIVATE_BUILD_DESC="my90ds_global_com-user 5.0.1 LRX21Y 150751559d830 release-keys" \
+    TARGET_DEVICE=my90ds

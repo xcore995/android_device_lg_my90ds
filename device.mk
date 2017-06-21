@@ -91,7 +91,6 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_COPY_FILES += \
     device/lg/my90ds/rootdir/root/init.magna_common.rc:root/init.magna_common.rc \
     device/lg/my90ds/rootdir/root/enableswap.sh:root/enableswap.sh \
-    device/lg/my90ds/rootdir/root/sbin/multi_init:root/sbin/multi_init \
     device/lg/my90ds/rootdir/root/init.protect.rc:root/init.protect.rc \
     device/lg/my90ds/rootdir/root/init.modem.rc:root/init.modem.rc \
     device/lg/my90ds/rootdir/root/factory_init.rc:root/factory_init.rc \

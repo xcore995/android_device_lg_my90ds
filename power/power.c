@@ -28,6 +28,36 @@
 
 
 
+static void power_init(struct power_module *module)
+{
+}
+
+static void power_set_interactive(struct power_module *module, int on)
+{
+}
+
+static void power_fwrite(const char *path, char *s)
+{
+    char buf[64];
+    int len;
+    int fd = open(path, O_WRONLY);
+
+    if (fd < 0) {
+        strerror_r(errno, buf, sizeof(buf));
+        ALOGE("Error opening %s: %s\n", path, buf);
+        return;
+    }
+
+    len = write(fd, s, strlen(s));
+    if (len < 0) {
+        strerror_r(errno, buf, sizeof(buf));
+        ALOGE("Error writing to %s: %s\n", path, buf);
+    }
+
+    close(fd);
+}
+
+
 
 void set_feature(struct power_module *module, feature_t feature, int state)
 {
@@ -35,6 +65,7 @@ void set_feature(struct power_module *module, feature_t feature, int state)
     char tmp_str[64];
     if (feature == POWER_FEATURE_DOUBLE_TAP_TO_WAKE) {
         snprintf(tmp_str, 64, "%d", state);
+        ALOGE("POWER_FEATURE_DOUBLE_TAP_TO_WAKE %d\n", state);
         power_fwrite(TAP_TO_WAKE_NODE, tmp_str);
         return;
     }
@@ -58,6 +89,5 @@ struct power_module HAL_MODULE_INFO_SYM = {
 
     .init = power_init,
     .setInteractive = power_set_interactive,
-    .powerHint = power_hint,
     .setFeature = set_feature,
 };

@@ -531,6 +531,11 @@ on boot
     write /sys/devices/platform/leds-mt65xx/leds/red/brightness 250
     write /sys/devices/platform/leds-mt65xx/leds/red/brightness 0
     #XCORE: END
+    #XCORE: Tap2Wake
+    #write /sys/devices/virtual/input/lge_touch/tap2wake 1
+    chown system system /sys/devices/virtual/input/lge_touch/tap2wake
+    chmod 0664 /sys/devices/virtual/input/lge_touch/tap2wake
+    #XCORE: END
     chown system system /sys/class/leds/blue/trigger
 
     # Permission for hibernation
@@ -871,9 +876,8 @@ service geomagneticd /system/bin/geomagneticd
     user system
     group system input
 service bmc156d /system/bin/bmc156d
-    disabled
     class main
-    user system
+    user root
     group system input
 service lsm303md /system/bin/lsm303md
     disabled
@@ -922,3 +926,18 @@ service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
 #
 # Connectivity related services (End)
 #
+#XCORE ENABLE ZRAM
+
+service enableswap /system/bin/sh /enableswap.sh
+    class core
+    oneshot
+    
+service tiny_mkswap /system/bin/tiny_mkswap /dev/block/zram0
+    class core
+    oneshot
+
+service tiny_swapon /system/bin/tiny_swapon /dev/block/zram0
+    class core
+    oneshot
+
+#XCORE ENABLE ZRAM END

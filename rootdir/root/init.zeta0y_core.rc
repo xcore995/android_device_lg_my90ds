@@ -1,0 +1,76 @@
+
+on init
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 1300000
+    write /sys/devices/system/cpu/cpufreq/hotplug/cpu_num_base 4
+    mkdir /cust 0771 system system
+    mkdir /persist 0771 system system
+    mkdir /persist-lg 0771 system system
+    mkdir /mpt 0771 system system
+
+   
+on post-fs
+	chmod 0660 /dev/misc2
+	chown root system /dev/misc2
+	chown root root /cust
+	chmod 0755 /cust
+    restorecon_recursive /cust
+	chown system system /persist
+	chmod 0771 /persist
+	chown system system /persist-lg
+	chmod 0771 /persist-lg
+	chown system system /mpt
+	chmod 0775 /mpt
+
+
+
+on post-fs-data
+# Sensor
+	chown system system /sys/bus/platform/drivers/gsensor/run_fast_calibration
+	chown system system /sys/bus/platform/drivers/gsensor/cpsbandwidth
+	chown system system /sys/bus/platform/drivers/gsensor/cpsdata
+	chown system system /sys/bus/platform/drivers/gsensor/cpsopmode
+	chown system system /sys/bus/platform/drivers/gsensor/cpsrange
+	chown system system /sys/bus/platform/drivers/msensor/cpsdata
+	chown system system /sys/bus/platform/drivers/msensor/cpsopmode
+	chown system system /sys/bus/platform/drivers/msensor/cpsreptxy
+	chown system system /sys/bus/platform/drivers/msensor/cpsreptz
+
+	chmod 0660 /dev/misc2
+	chown root system /dev/misc2
+
+	mkdir /persist-lg/sensor 0771 system system
+	chown system system /persist-lg/sensor
+	chmod 0771 /persist-lg/sensor
+
+# PSEUDO_BATTERY
+    chown system system /sys/devices/platform/battery/pseudo_batt
+
+
+
+
+service bmc150d /system/bin/bmc150d
+	user system
+	group system
+	class main
+	oneshot
+
+
+service lgpserver /system/bin/lgpserver
+	class main
+	user system
+	group radio system
+
+# LGE AT command daemon(atd)
+service atd /system/bin/atd
+	socket atd stream 0660 system inet
+	class main
+
+## hreset_enable 0 : kernel panic handler
+## hreset_enable 1 : hidden(silent) reset
+chmod 0664 /sys/module/lge_handle_panic/parameters/hreset_enable
+
+
+on property:dev.bootcomplete=1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 598000
+    write /sys/devices/system/cpu/cpufreq/hotplug/cpu_num_base 1
+

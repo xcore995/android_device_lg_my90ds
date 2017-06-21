@@ -20,6 +20,4 @@ PRODUCT_DEVICE := my90ds
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=my90ds_global_com \
-    BUILD_FINGERPRINT=lge/my90ds_global_com/my90ds:5.0.1/LRX21Y/150751559d830:user/release-keys \
-    PRIVATE_BUILD_DESC="my90ds_global_com-user 5.0.1 LRX21Y 150751559d830 release-keys" \
     TARGET_DEVICE=my90ds

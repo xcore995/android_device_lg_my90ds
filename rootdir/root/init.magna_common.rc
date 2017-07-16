@@ -24,6 +24,7 @@ on init
 on fs
     write /proc/bootprof "INIT:eMMC:Mount_All_START"
     mount_all /fstab.magna
+    swapon_all fstab.magna
     write /proc/bootprof "INIT:eMMC:Mount_All_END"
 
 # mount different fs end
@@ -926,18 +927,3 @@ service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
 #
 # Connectivity related services (End)
 #
-#XCORE ENABLE ZRAM
-
-service enableswap /system/bin/sh /enableswap.sh
-    class core
-    oneshot
-    
-service tiny_mkswap /system/bin/tiny_mkswap /dev/block/zram0
-    class core
-    oneshot
-
-service tiny_swapon /system/bin/tiny_swapon /dev/block/zram0
-    class core
-    oneshot
-
-#XCORE ENABLE ZRAM END

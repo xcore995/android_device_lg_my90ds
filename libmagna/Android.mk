@@ -19,9 +19,12 @@ LOCAL_SRC_FILES := \
     ril.cpp \
     ssl.c \
     wvm.cpp \
-    ui.cpp
+    ui.cpp \
+    xlog.c \
+    mtkaudio.cpp
 
-LOCAL_SHARED_LIBRARIES := libbinder libcrypto liblog libstagefright_foundation libui libgui
+LOCAL_C_INCLUDES += frameworks/av/media/mtp/ system/core/include/ frameworks/rs/server/ frameworks/av/include/ hardware/libhardware/include/
+LOCAL_SHARED_LIBRARIES := libbinder libcrypto liblog libstagefright_foundation libui libgui libcutils libutils
 LOCAL_MODULE := libmagna
 LOCAL_MODULE_TAGS := optional
 

@@ -6,4 +6,4 @@ allow system_server init_tmpfs:file read;
 allow system_server mnld_data_file:dir { write remove_name add_name search};
 allow system_server mnld_data_file:sock_file { write create unlink setattr };
 allow system_server zygote:binder call;
-allow system_server mnld:unix_dgram_socket sendto;
+allow system_server debugfs:dir {read open};

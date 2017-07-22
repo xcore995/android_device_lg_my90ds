@@ -22,9 +22,6 @@
 /system/bin/mdlogger u:object_r:mdlogger_exec:s0
 /system/bin/netdiag u:object_r:netdiag_exec:s0
 /system/bin/meta_tst u:object_r:meta_tst_exec:s0
-/enableswap.sh u:object_r:enableswap_exec:s0
-/system/bin/tiny_mkswap u:object_r:tiny_mkswap_exec:s0
-/system/bin/tiny_swapon u:object_r:tiny_swapon_exec:s0
 /dev/socket/netdiag(/.*)? u:object_r:netdiag_socket:s0
 
 /dev/wmtWifi          u:object_r:wmtWifi_device:s0
@@ -33,7 +30,6 @@
 /dev/ccci_monitor     u:object_r:ccci_monitor_device:s0
 /dev/mtk-adc-cali     u:object_r:mtk_adc_cali_device:s0
 /dev/devmap           u:object_r:devmap_device:s0
-/dev/block/mmcblk0  u:object_r:nvram_device:s0
 /dev/ccci_.*          u:object_r:ccci_device:s0
 /dev/fm(/.*)?         u:object_r:fm_device:s0
 /dev/socket/rild(.*)? u:object_r:rild_socket:s0
@@ -77,7 +73,20 @@
 /dev/stpgps        u:object_r:mnld_device:s0
 /dev/radio(/*)?    u:object_r:radio_device:s0
 /dev/aed[0-9]+     u:object_r:aed_device:s0
+
+# block devices
+
+/dev/block/mmcblk0p7 u:object_r:misc_block_device:s0
+/dev/block/mmcblk0p9 u:object_r:system_block_device:s0
+/dev/block/mmcblk0p10 u:object_r:cache_block_device:s0
 /dev/block/mmcblk0p13 u:object_r:aed_block_device:s0
+/dev/block/mmcblk0  u:object_r:nvram_device:s0
+/dev/block/mmcblk0p11 u:object_r:userdata_block_device:s0
+/dev/block/zram0 u:object_r:swap_block_device:s0
+
+
+
+
 /dev/Vcodec        u:object_r:Vcodec_device:s0
 /dev/ebc           u:object_r:ebc_device:s0
 /dev/sw_sync       u:object_r:sw_sync_device:s0
@@ -86,9 +95,8 @@
 /dev/MT_pmic_adc_cali  u:object_r:MT_pmic_adc_cali_device:s0
 /dev/als_ps            u:object_r:als_ps_device:s0
 /dev/mtk_jpeg      u:object_r:mtk_jpeg_device:s0
+/dev/nvram	u:object_r:nvram_device:s0
 
-/protect_f(/.*)?         u:object_r:protect_f_data_file:s0
-/protect_s(/.*)?         u:object_r:protect_s_data_file:s0
 /data/amit(/.*)?         u:object_r:amit_data_file:s0
 /data/gps_mnl(/.*)?      u:object_r:mnld_data_file:s0
 /data/misc/touchpanel(/.*)?  u:object_r:touchpanel_data_file:s0
@@ -104,10 +112,12 @@
 /data/misc/mblog(/.*)?   u:object_r:logmisc_data_file:s0
 /data/log_temp(/.*)?     u:object_r:logtemp_data_file:s0
 /data/mdl(/.*)?          u:object_r:mdl_data_file:s0
+/data/ccci_cfg(/.*)?   u:object_r:nvram_data_file:s0
 /dev/preloader(/.*)? u:object_r:preloader_device:s0
 /dev/pro_info(/.*)? u:object_r:pro_info_device:s0
 /dev/misc-sd(/.*)? u:object_r:misc_sd_device:s0
 /dev/misc(/.*)? u:object_r:misc_device:s0 
+/dev/misc2 u:object_r:misc_device:s0 
 /dev/sec_ro(/.*)? u:object_r:sec_ro_device:s0 
-/data/misc/sensor/.id                      u:object_r:sensord_data_file:s0
+/data/misc/sensor(/.*)?                     u:object_r:sensord_data_file:s0
 /data/misc/sensor/sensord.log              u:object_r:sensord_data_file:s0

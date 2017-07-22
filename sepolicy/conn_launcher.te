@@ -7,4 +7,7 @@ allow conn_launcher stpwmt_device:chr_file { open read write ioctl};
 allow conn_launcher property_socket:sock_file { open read write };
 allow conn_launcher init:unix_stream_socket connectto;
 allow conn_launcher wcn_combo_chip_prop:property_service set;
+allow conn_launcher wcn_combo_chip_prop:file read; 
+allow conn_launcher system_file:dir { open read };
+allow conn_launcher system_file:file { open read };
 

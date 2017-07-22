@@ -1,0 +1,5 @@
+allow audioserver wcn_combo_chip_prop:file {read open getattr};
+allow audioserver ccci_device:chr_file {read write open ioctl};
+allow audioserver sysfs:file {read open};
+allow audioserver modem_prop:file {read open getattr};
+allow audioserver ebc_device:chr_file {read write open };

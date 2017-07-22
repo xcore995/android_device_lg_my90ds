@@ -11,4 +11,4 @@ allow bmm050d msensor_device:chr_file rw_file_perms;
 allow bmm050d sysfs_sensor_file:file { rw_file_perms };
 allow bmm050d system_data_file:dir { setattr rw_dir_perms };
 allow bmm050d sensord_data_file:file { create setattr rw_file_perms};
-dontaudit bmm050d system_data_file:file create;
+allow bmm050d sensord_data_file:dir { setattr getattr search };

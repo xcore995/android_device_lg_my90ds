@@ -1,5 +1,0 @@
-type enableswap, domain;
-type enableswap_exec, exec_type, file_type;
-
-init_daemon_domain(enableswap)
-allow enableswap enableswap_exec:file { read open getattr execute execute_no_trans};

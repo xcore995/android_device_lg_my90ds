@@ -7,7 +7,7 @@ on early-init
     setprop ro.mtk.hardware mt6582
 
 on init
-    export LD_PRELOAD "/system/lib/libxlog.so /system/lib/libmagna.so"
+    export LD_PRELOAD "/system/lib/libmagna.so"
     
     mkdir /protect_f 0771 system system
     mkdir /protect_s 0771 system system

@@ -70,7 +70,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lg/my90ds/bluetooth
 # OpenGL
 USE_OPENGL_RENDERER := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
-
+TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 # FM
 MTK_FM_SUPPORT :=true
@@ -111,6 +111,8 @@ TARGET_SYSTEM_PROP := device/lg/my90ds/system.prop
 SIM_COUNT := 2
 TARGET_GLOBAL_CFLAGS += -DANDROID_MULTI_SIM
 TARGET_GLOBAL_CPPFLAGS += -DANDROID_MULTI_SIM
+
+BOARD_EGL_CFG := device/lg/my90ds/rootdir/system/etc/egl.cfg
 
 # RIL
 BOARD_RIL_CLASS := ../../../device/lg/my90ds/ril/

@@ -90,15 +90,14 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 # RAMDISK
 PRODUCT_COPY_FILES += \
     device/lg/my90ds/rootdir/root/init.magna_common.rc:root/init.magna_common.rc \
-    device/lg/my90ds/rootdir/root/enableswap.sh:root/enableswap.sh \
     device/lg/my90ds/rootdir/root/init.protect.rc:root/init.protect.rc \
+    device/lg/my90ds/rootdir/root/fstab.magna:root/fstab.magna \
     device/lg/my90ds/rootdir/root/init.modem.rc:root/init.modem.rc \
     device/lg/my90ds/rootdir/root/factory_init.rc:root/factory_init.rc \
     device/lg/my90ds/rootdir/root/ueventd.magna.rc:root/ueventd.magna.rc \
     device/lg/my90ds/rootdir/root/init.magna.usb.rc:root/init.magna.usb.rc \
     device/lg/my90ds/rootdir/root/init.zeta0y_core.rc:root/init.zeta0y_core.rc \
-    device/lg/my90ds/rootdir/root/init.magna.rc:root/init.magna.rc \
-    device/lg/my90ds/rootdir/root/fstab.my90ds:root/fstab.my90ds
+    device/lg/my90ds/rootdir/root/init.magna.rc:root/init.magna.rc 
     
    
 
@@ -152,13 +151,15 @@ PRODUCT_PACKAGES += \
     
 # XCORE995 SHIM LIBS start  
   
-PRODUCT_PACKAGES += \
-    libxlog
     
 PRODUCT_PACKAGES += \
     libmagna
     
 # XCORE995 SHIM LIBS end
+
+PRODUCT_PACKAGES += \
+    power
+
 	
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
 	ro.crypto.state=unencrypted \

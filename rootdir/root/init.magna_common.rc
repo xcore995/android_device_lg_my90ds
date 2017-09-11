@@ -493,6 +493,7 @@ on boot
    chown root /remount.sh
    chmod 700 /remount.sh
    exec /remount.sh
+   chown wifi wifi /dev/wmtWifi
 
     # xlog
     start xlogboot

@@ -76,7 +76,6 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 MTK_FM_SUPPORT :=true
 MTK_FM_RX_SUPPORT :=true
 # MTK_WLAN_SUPPORT
-BOARD_WLAN_DEVICE := MediaTek
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_mt66xx
@@ -85,7 +84,7 @@ BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_mt66xx
 WIFI_DRIVER_FW_PATH_PARAM:="/dev/wmtWifi"
 WIFI_DRIVER_FW_PATH_STA:=STA
 WIFI_DRIVER_FW_PATH_AP:=AP
-WIFI_DRIVER_FW_PATH_P2P:=P2P
+WIFI_DRIVER_FW_PATH_STA:=P2P
 
 #USE_LEGACY_AUDIO_POLICY=true
 #USE_CUSTOM_AUDIO_POLICY := 1
@@ -102,6 +101,9 @@ MTK_HARDWARE := true
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap2wake"
+
+# Use half res bootanimation to speed up first boot sequence
+TARGET_BOOTANIMATION_HALF_RES := true
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
@@ -137,5 +139,6 @@ USE_CAMERA_STUB := true
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/lg/my90ds/sepolicy
+    
 
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)

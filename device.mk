@@ -38,7 +38,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -99,10 +98,6 @@ PRODUCT_COPY_FILES += \
     device/lg/my90ds/rootdir/root/init.zeta0y_core.rc:root/init.zeta0y_core.rc \
     device/lg/my90ds/rootdir/root/init.magna.rc:root/init.magna.rc \
     device/lg/my90ds/rootdir/root/sbin/chargerlogo:root/sbin/chargerlogo
-    
-   
-
-
 
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -114,8 +109,8 @@ PRODUCT_PACKAGES += \
 
 
 # FMRadio
-# PRODUCT_PACKAGES += \
-#	FMRadio
+PRODUCT_PACKAGES += \
+	FMRadio
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -158,8 +153,10 @@ PRODUCT_PACKAGES += \
     
 # XCORE995 SHIM LIBS end
 
+# Power
 PRODUCT_PACKAGES += \
-    power
+    power.default \
+    power.mt6582
 
 	
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
@@ -177,8 +174,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
 	ro.dalvik.vm.native.bridge=0 \
 	ro.hardware=sprout \
 	ro.telephony.ril_class=SproutRIL \
-	ro.telephony.ril.config=fakeiccid 
-
+        camera.disable_zsl_mode=1
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     pm.dexopt.first-boot=verify-at-runtime \

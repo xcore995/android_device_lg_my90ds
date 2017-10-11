@@ -10,9 +10,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/lg/my90ds/device.mk)
 
 
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common AOSP-OMS stuff.
+$(call inherit-product, vendor/aosp/common.mk)
+
+PRODUCT_PACKAGES += \
+    SnapdragonCamera
+
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_my90ds
+PRODUCT_NAME := aosp_my90ds
 PRODUCT_BRAND := lge
 PRODUCT_MODEL := LG-H502
 PRODUCT_MANUFACTURER := LGE

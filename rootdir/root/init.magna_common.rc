@@ -905,10 +905,15 @@ service thermal_manager /system/bin/thermal_manager
     user root
     oneshot
 
-service battery_charger /charger
-    class charger
+on charger
+	mount ext4 /emmc@android /system ro wait
+	start chargerlogo
 
-    seclabel u:r:healthd:s0
+
+service chargerlogo /sbin/chargerlogo
+    user root
+    disabled
+
 #
 # Connectivity related services (Begin)
 #

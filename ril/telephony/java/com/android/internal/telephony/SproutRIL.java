@@ -18,6 +18,7 @@ package com.android.internal.telephony;
 
 import static com.android.internal.telephony.RILConstants.*;
 
+import com.android.internal.telephony.uicc.IccRefreshResponse;
 import android.content.Context;
 import android.os.AsyncResult;
 import android.os.Message;
@@ -281,6 +282,19 @@ public class SproutRIL extends RIL implements CommandsInterface {
 
     // Override setupDataCall as the MTK RIL needs 8th param CID (hardwired to 1?)
     @Override
+    protected Object
+    responseSimRefresh(Parcel p) {
+        IccRefreshResponse response = new IccRefreshResponse();
+
+        response.refreshResult = p.readInt();
+        String rawefId = p.readString();
+        response.efId   = rawefId == null ? 0 : Integer.parseInt(rawefId);
+        response.aid = p.readString();
+
+        return response;
+    }
+
+    @Override
     public void
     setupDataCall(int radioTechnology, int profile, String apn,
             String user, String password, int authType, String protocol,
@@ -372,4 +386,17 @@ public class SproutRIL extends RIL implements CommandsInterface {
 
         super.setPreferredNetworkType(networkType, response);
     }
+	
+	
+	    @Override
+    public void
+    iccIOForApp (int command, int fileid, String path, int p1, int p2, int p3,
+            String data, String pin2, String aid, Message result) {
+        if (command == 0xc0 && p3 == 0) {
+            Rlog.i("MT6735", "Override the size for the COMMAND_GET_RESPONSE 0 => 15");
+            p3 = 15;
+        }
+        super.iccIOForApp(command, fileid, path, p1, p2, p3, data, pin2, aid, result);
+    }
+
 }

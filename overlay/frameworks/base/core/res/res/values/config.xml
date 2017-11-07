@@ -57,9 +57,6 @@
     <!-- Allow the menu hard key to be disabled in LockScreen on some devices -->
     <bool name="config_disableMenuKeyInLockScreen">true</bool>
 
-    <!-- If this is true, the screen will come on when you plug/unplug usb/power/whatever. -->
-    <bool name="config_unplugTurnsOnScreen">true</bool>
-
     <!-- Default color for notification LED is green. -->
     <color name="config_defaultNotificationColor">#ff00ff00</color>
 
@@ -164,11 +161,9 @@
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
 
-    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
+    <bool name="config_enableAutoPowerModes">true</bool>
+
     <integer name="config_screenBrightnessDoze">2</integer>
-	
-    <!-- If this is true, the screen will come on when you plug/unplug usb/power/whatever. -->
-    <bool name="config_unplugTurnsOnScreen">true</bool>
 
     <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
     <integer name="config_shutdownBatteryTemperature">600</integer>
@@ -283,9 +278,6 @@
     <bool name="config_enableMultiUserUI">true</bool>
 
     <bool name="config_user_notification_of_restrictied_mobile_access">false</bool>
-
-    <!-- Use wakelock for flashlight -->
-     <bool name="config_useWakeLockForFlashlight">true</bool>
 
     <!-- Performance profiles -->
 	<!--

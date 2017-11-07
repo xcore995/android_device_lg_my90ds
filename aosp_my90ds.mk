@@ -10,11 +10,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/lg/my90ds/device.mk)
 
 
-# Inherit some common AOSP-OMS stuff.
-$(call inherit-product, vendor/aosp/common.mk)
-
-PRODUCT_PACKAGES += \
-    SnapdragonCamera
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := aosp_my90ds

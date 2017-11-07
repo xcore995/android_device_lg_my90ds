@@ -18,9 +18,6 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := \
     bionic.cpp \
     ril.cpp \
-    ssl.c \
-    wvm.cpp \
-    ui.cpp \
     xlog.c \
     mtkaudio.cpp
 

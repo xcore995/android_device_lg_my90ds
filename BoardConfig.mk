@@ -113,17 +113,13 @@ TARGET_SYSTEM_PROP := device/lg/my90ds/system.prop
 
 # Dual SIM
 SIM_COUNT := 2
-TARGET_GLOBAL_CFLAGS += -DANDROID_MULTI_SIM
-TARGET_GLOBAL_CPPFLAGS += -DANDROID_MULTI_SIM
+
 
 BOARD_EGL_CFG := device/lg/my90ds/rootdir/system/etc/egl.cfg
 
 # RIL
 BOARD_RIL_CLASS := ../../../device/lg/my90ds/ril/
 
-# Flags
-TARGET_GLOBAL_CFLAGS   += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_USERIMAGES_USE_EXT4:=true
 USE_CAMERA_STUB := true
 

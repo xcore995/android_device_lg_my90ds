@@ -181,6 +181,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.default \
     power.mt6582
+    
+# HIDL
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
+
 
 	
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \

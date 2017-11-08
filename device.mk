@@ -110,8 +110,10 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio.r_submix.default \
     libaudio-resampler \
-    tinymix
-
+    tinymix \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl
+    
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl

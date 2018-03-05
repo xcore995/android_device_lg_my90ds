@@ -276,7 +276,7 @@ on post-fs-data
     #Accdet
     chown root radio /sys/devices/platform/Accdet_Driver/driver/accdet_call_state
     #VideoCodec
-    chmod 0660 /dev/Vcodec
+    chmod 0666 /dev/Vcodec
     chown media media /dev/Vcodec
 
     #kpd

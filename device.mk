@@ -116,8 +116,8 @@ PRODUCT_PACKAGES += \
 
 
 # FMRadio
-# PRODUCT_PACKAGES += \
-#	FMRadio
+PRODUCT_PACKAGES += \
+	FMRadio
 
 # Camera
 PRODUCT_PACKAGES += \

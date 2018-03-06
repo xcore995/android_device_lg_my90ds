@@ -160,9 +160,10 @@ PRODUCT_PACKAGES += \
     
 # XCORE995 SHIM LIBS end
 
+# Power
 PRODUCT_PACKAGES += \
-    power
-
+    power.default \
+    power.mt6582
 	
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
 	ro.crypto.state=unencrypted \

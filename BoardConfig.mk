@@ -42,7 +42,6 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 #BOARD_CUSTOM_BOOTIMG_MK := device/lg/my90ds/tools/bootimg.mk xcore: No mtk-header
 #TARGET_PREBUILT_KERNEL := device/lg/my90ds/kernel
 MTK_PLATFORM := mt6582
-MTK_PROJECT := magna
 TARGET_KERNEL_SOURCE := kernel/lg/my90ds
 TARGET_KERNEL_CONFIG := magna_defconfig
 BOARD_KERNEL_CMDLINE := androidboot.hardware=magna androidboot.selinux=permissive
@@ -57,9 +56,6 @@ WITH_DEXPREOPT := false
 DISABLE_DEXPREOPT := true
 
 BLOCK_BASED_OTA := false
-
-#ANDROID_COMPILE_WITH_JACK := false
-#DEFAULT_JACK_ENABLED=false
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -76,7 +72,6 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 MTK_FM_SUPPORT :=true
 MTK_FM_RX_SUPPORT :=true
 # MTK_WLAN_SUPPORT
-BOARD_WLAN_DEVICE := MediaTek
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_mt66xx
@@ -87,13 +82,6 @@ WIFI_DRIVER_FW_PATH_STA:=STA
 WIFI_DRIVER_FW_PATH_AP:=AP
 WIFI_DRIVER_FW_PATH_P2P:=P2P
 
-#USE_LEGACY_AUDIO_POLICY=true
-#USE_CUSTOM_AUDIO_POLICY := 1
-
-
-
-USE_NINJA=false
-
 #Mediatek flags
 BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true
@@ -101,17 +89,13 @@ MTK_HARDWARE := true
 # FRAMEWORK WITH OUT SYNC
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
+#Tap 2 wake
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap2wake"
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
 
 # Offmode Charging
-WITH_CM_CHARGER := true
-BOARD_CHARGER_DISABLE_INIT_BLANK := true
-BOARD_CHARGER_ENABLE_SUSPEND := false
-BACKLIGHT_PATH := "/sys/class/leds/lcd-backlight/brightness"
-
 BOARD_CHARGING_CMDLINE_NAME := "androidboot.mode"
 BOARD_CHARGING_CMDLINE_VALUE := "chargerlogo"
 

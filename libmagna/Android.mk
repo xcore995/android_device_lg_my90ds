@@ -22,7 +22,8 @@ LOCAL_SRC_FILES := \
     wvm.cpp \
     ui.cpp \
     xlog.c \
-    mtkaudio.cpp
+    mtkaudio.cpp \
+    camera.cpp
 
 LOCAL_C_INCLUDES += frameworks/av/media/mtp/ system/core/include/ frameworks/rs/server/ frameworks/av/include/ hardware/libhardware/include/
 LOCAL_SHARED_LIBRARIES := libbinder libcrypto liblog libstagefright_foundation libui libgui libcutils libutils libc

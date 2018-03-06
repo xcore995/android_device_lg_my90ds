@@ -1,38 +1,14 @@
 #
-# system.prop for sprout
+# system.prop for my90ds
 #
-ro.hardware=sprout
-
+				  
 rild.libpath=/system/lib/mtk-ril.so
 rild.libargs=-d /dev/ttyC0
 
-
-# MTK, Infinity, 20090720 {
-wifi.interface=wlan0
-# MTK, Infinity, 20090720 }
-
-# MTK, mtk03034, 20101210 {
-ro.mediatek.wlan.wsc=1
-# MTK, mtk03034 20101210}
-# MTK, mtk03034, 20110318 {
-ro.mediatek.wlan.p2p=1
-# MTK, mtk03034 20110318}
-
-# MTK, mtk03034, 20101213 {
-mediatek.wlan.ctia=0
-# MTK, mtk03034 20101213}
-
-
-#
-wifi.tethering.interface=ap0
-#
+# LCD Density
 ro.sf.lcd_density=320
-persist.sys.lcd_density=320
+						   
 ro.opengles.version=131072
-
-wifi.direct.interface=p2p0
-#dalvik.vm.heapgrowthlimit=96m
-#dalvik.vm.heapsize=128m
 
 # USB MTP WHQL
 ro.sys.usb.mtp.whql.enable=0
@@ -48,7 +24,13 @@ ro.sys.usb.bicr=yes
 # USB Charge only function
 ro.sys.usb.charging.only=yes
 
-# audio
+# Sdcardfs
+ro.sys.sdcardfs=true
+
+# temporary enables NAV bar (soft keys)
+qemu.hw.mainkeys=0
+
+# Audio
 ro.camera.sound.forced=0
 ro.audio.silent=0
 
@@ -60,13 +42,23 @@ ro.boot.selinux=disable
 # Disable dirty region for Mali
 debug.hwui.render_dirty_regions=false
 
+# MTK H/W
 ro.mediatek.chip_ver=S01
 ro.mediatek.version.release=ALPS.W10.24.p0
 ro.mediatek.platform=MT6582
 ro.mediatek.version.sdk=1
-ro.telephony.sim.count=2
-persist.radio.default.sim=0
-persist.radio.multisim.config=dsds
+ro.crypto.state=unencrypted
+
+# Wifi
+wifi.supplicant_scan_interval=15
+wifi.interface=wlan0
+ro.mediatek.wlan.wsc=1
+ro.mediatek.wlan.p2p=1
+mediatek.wlan.ctia=0
+wifi.tethering.interface=ap0
+wifi.direct.interface=p2p0
+
+# RIL
 ro.telephony.default_network=0,1
 ril.first.md=1
 ril.flightmode.poweroffMD=1
@@ -78,27 +70,18 @@ ril.external.md=0
 ro.sf.hwrotation=0
 ril.current.share_modem=2
 ril.radiooff.poweroffMD=0
-
-# temporary enables NAV bar (soft keys)
-qemu.hw.mainkeys=0
-
-ro.crypto.state=unencrypted
-
+ro.telephony.sim.count=2
+persist.radio.default.sim=0
+persist.radio.multisim.config=dsds
 ##XCORE
 media.stagefright.legacyencoder=true
 media.stagefright.less-secure=true
-ro.telephony.ril_class=MT6735
-ro.telephony.ril.config=fakeiccid
 ##XCORE
 ##
 persist.radio.fd.counter=15
 persist.radio.fd.off.counter=5
 persist.radio.fd.r8.counter=15
 persist.radio.fd.off.r8.counter=5
-wifi.supplicant_scan_interval=15
+
 ##
 ro.mtk_gps_support=1
-#ro.ril.hsxpa=2
-#ro.ril.hsdpa.category=8
-#ro.ril.hsupa.category=5
-##

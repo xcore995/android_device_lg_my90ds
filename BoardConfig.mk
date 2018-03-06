@@ -138,4 +138,7 @@ USE_CAMERA_STUB := true
 BOARD_SEPOLICY_DIRS += \
     device/lg/my90ds/sepolicy
 
+# SECCOMP
+BOARD_SECCOMP_POLICY += device/lg/my90ds/seccomp
+
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)

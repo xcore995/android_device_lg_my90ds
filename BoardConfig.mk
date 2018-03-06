@@ -55,7 +55,7 @@ TARGET_RECOVERY_FSTAB := device/lg/my90ds/rootdir/root/recovery.fstab
 WITH_DEXPREOPT := false
 DISABLE_DEXPREOPT := true
 
-BLOCK_BASED_OTA := false
+BLOCK_BASED_OTA := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true

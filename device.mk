@@ -98,12 +98,7 @@ PRODUCT_COPY_FILES += \
     device/lg/my90ds/rootdir/root/ueventd.magna.rc:root/ueventd.magna.rc \
     device/lg/my90ds/rootdir/root/init.magna.usb.rc:root/init.magna.usb.rc \
     device/lg/my90ds/rootdir/root/init.zeta0y_core.rc:root/init.zeta0y_core.rc \
-    device/lg/my90ds/rootdir/root/init.magna.rc:root/init.magna.rc \
-    device/lg/my90ds/rootdir/root/sbin/chargerlogo:root/sbin/chargerlogo
-    
-   
-
-
+    device/lg/my90ds/rootdir/root/init.magna.rc:root/init.magna.rc
 
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -151,8 +146,7 @@ PRODUCT_PACKAGES += \
     setup_fs \
     e2fsck
     
-# XCORE995 SHIM LIBS start  
-  
+# XCORE995 SHIM LIBS start    
     
 PRODUCT_PACKAGES += \
     libmagna

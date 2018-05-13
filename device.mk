@@ -12,15 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-# call dalvik heap config
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-
 DEVICE_PACKAGE_OVERLAYS := \
     device/lg/my90ds/overlay
-
-
-
+	
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
@@ -130,9 +124,6 @@ PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory
 
-# call the proprietary setup
-$(call inherit-product, vendor/lg/my90ds/my90ds-vendor.mk)
-
 PRODUCT_PACKAGES += \
     charger \
     charger_res_images \
@@ -163,28 +154,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
 	ro.mount.fs=EXT4 \
 	ro.secure=1 \
 	ro.allow.mock.location=0 \
-	ro.debuggable=1 \
+	ro.debuggable=0 \
 	ro.zygote=zygote32 \
 	camera.disable_zsl_mode=1 \
-	dalvik.vm.dex2oat-Xms=64m \
-	dalvik.vm.dex2oat-Xmx=512m \
-	dalvik.vm.image-dex2oat-Xms=64m \
-	dalvik.vm.image-dex2oat-Xmx=64m \
-	ro.dalvik.vm.native.bridge=0 \
-	ro.hardware=sprout \
-	ro.telephony.ril_class=SproutRIL \
-	persist.sys.usb.config=mtp
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    pm.dexopt.first-boot=verify-at-runtime \
-    pm.dexopt.boot=verify-at-runtime \
-    pm.dexopt.install=interpret-only \
-    pm.dexopt.bg-dexopt=speed-profile \
-    pm.dexopt.ab-ota=speed-profile \
-    pm.dexopt.nsys-library=speed \
-    pm.dexopt.shared-apk=speed \
-    pm.dexopt.forced-dexopt=speed \
-    pm.dexopt.core-app=speed
+	ro.telephony.ril_class=SproutRIL
 
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-filter=speed \

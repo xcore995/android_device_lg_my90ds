@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Define Device Lid Style
+
+     1 HTC Style Dotcase
+     2 Asus/LG Style Circle Window Cover
+
+     For example, a device with Asus Circle Cover would set 2 -->
+    <integer name="config_deviceCoverType">2</integer>
+
+</resources>

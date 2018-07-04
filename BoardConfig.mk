@@ -55,7 +55,7 @@ TARGET_RECOVERY_FSTAB := device/lg/my90ds/rootdir/root/recovery.fstab
 WITH_DEXPREOPT := false
 DISABLE_DEXPREOPT := true
 
-BLOCK_BASED_OTA := false
+BLOCK_BASED_OTA := true
 
 #ANDROID_COMPILE_WITH_JACK := false
 #DEFAULT_JACK_ENABLED=false

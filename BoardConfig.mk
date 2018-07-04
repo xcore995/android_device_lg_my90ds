@@ -57,9 +57,6 @@ DISABLE_DEXPREOPT := true
 
 BLOCK_BASED_OTA := true
 
-#ANDROID_COMPILE_WITH_JACK := false
-#DEFAULT_JACK_ENABLED=false
-
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_MTK := true
@@ -89,9 +86,8 @@ WIFI_DRIVER_FW_PATH_STA:=P2P
 #USE_LEGACY_AUDIO_POLICY=true
 #USE_CUSTOM_AUDIO_POLICY := 1
 
-
-
-USE_NINJA=false
+# Fix scaling on older omx
+TARGET_OMX_LEGACY_RESCALING := true
 
 #Mediatek flags
 BOARD_HAS_MTK_HARDWARE := true
@@ -100,10 +96,8 @@ MTK_HARDWARE := true
 # FRAMEWORK WITH OUT SYNC
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
+#Tap 2 wake
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap2wake"
-
-# Use half res bootanimation to speed up first boot sequence
-TARGET_BOOTANIMATION_HALF_RES := true
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
@@ -112,7 +106,6 @@ TARGET_SYSTEM_PROP := device/lg/my90ds/system.prop
 
 # Dual SIM
 SIM_COUNT := 2
-
 
 BOARD_EGL_CFG := device/lg/my90ds/rootdir/system/etc/egl.cfg
 

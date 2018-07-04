@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-     $(LOCAL_DIR)/aosp_my90ds.mk
+     $(LOCAL_DIR)/device.mk

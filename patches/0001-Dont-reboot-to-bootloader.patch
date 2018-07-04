@@ -1,0 +1,26 @@
+From 1b031f6b6db0194485fd0f4ef6ba83dbdda2c0b9 Mon Sep 17 00:00:00 2001
+From: xcore995 <arman.p95@gmail.com>
+Date: Wed, 4 Jul 2018 09:58:56 +0000
+Subject: [PATCH] Dont reboot to bootloader
+
+Change-Id: I18f9f487e00ae9150844516e3c202fe3c09c084a
+---
+ init/init.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/init/init.cpp b/init/init.cpp
+index 35fc442..08a8809 100644
+--- a/init/init.cpp
++++ b/init/init.cpp
+@@ -431,7 +431,7 @@ static int set_mmap_rnd_bits_action(const std::vector<std::string>& args)
+ 
+     if (ret == -1) {
+         LOG(ERROR) << "Unable to set adequate mmap entropy value!";
+-        security_failure();
++        //security_failure();
+     }
+     return ret;
+ }
+-- 
+2.7.4
+

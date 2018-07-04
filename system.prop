@@ -52,7 +52,6 @@ ro.crypto.state=unencrypted
 # Wifi
 wifi.supplicant_scan_interval=15
 wifi.interface=wlan0
-ro.hardware=sprout
 ro.mediatek.wlan.wsc=1
 ro.mediatek.wlan.p2p=1
 mediatek.wlan.ctia=0

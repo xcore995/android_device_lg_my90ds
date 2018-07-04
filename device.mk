@@ -134,16 +134,14 @@ PRODUCT_PACKAGES += \
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl
+    
 # Keymaster
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-impl
 
 PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory
-
-# call the proprietary setup
-$(call inherit-product, vendor/lg/my90ds/my90ds-vendor.mk)
 
 PRODUCT_PACKAGES += \
     charger \
@@ -190,19 +188,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
 	dalvik.vm.image-dex2oat-Xms=64m \
 	dalvik.vm.image-dex2oat-Xmx=64m \
 	ro.dalvik.vm.native.bridge=0 \
-	ro.telephony.ril_class=SproutRIL \
         camera.disable_zsl_mode=1
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    pm.dexopt.first-boot=verify-at-runtime \
-    pm.dexopt.boot=verify-at-runtime \
-    pm.dexopt.install=interpret-only \
-    pm.dexopt.bg-dexopt=speed-profile \
-    pm.dexopt.ab-ota=speed-profile \
-    pm.dexopt.nsys-library=speed \
-    pm.dexopt.shared-apk=speed \
-    pm.dexopt.forced-dexopt=speed \
-    pm.dexopt.core-app=speed
 
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-filter=speed \

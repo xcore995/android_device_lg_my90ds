@@ -69,18 +69,11 @@
     <!-- Default value for led color when battery is fully charged -->
     <integer name="config_notificationsBatteryFullARGB">0xff00ff00</integer>
 
-    <!-- Boolean indicating if restoring network selection should be skipped -->
-    <!-- The restoring is handled by modem if it is true -->
-    <bool translatable="false" name="skip_restoring_network_selection">true</bool>
-
     <!-- Enables SIP on WIFI only -->
     <bool name="config_sip_wifi_only">false</bool>
 
     <!-- Enable the electron beam -->
     <bool name="config_animateScreenLights">false</bool>
-
-    <!-- Remote server that can provide NTP responses. -->
-    <string translatable="false" name="config_ntpServer">ntp.nict.jp</string>
 
     <!-- National language single shift tables to enable for SMS encoding.
          Decoding is always enabled. 3GPP TS 23.038 states that this feature
@@ -161,10 +154,19 @@
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
 
-    <bool name="config_enableAutoPowerModes">true</bool>
+    <!-- Screen brightness used to dim the screen while dozing in a very low power state.
+         May be less than the minimum allowed brightness setting
+         that can be set by the user. -->
+    <integer name="config_screenBrightnessDoze">10</integer>
 
-    <integer name="config_screenBrightnessDoze">2</integer>
+	<!-- Enable doze mode
+         ComponentName of a dream to show whenever the system would otherwise have gone to sleep. -->
+    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
 
+    <!-- If true, the doze component is not started until after the screen has been turned off
+         and the screen off animation has been performed. -->
+    <bool name="config_dozeAfterScreenOff">true</bool>
+	
     <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
     <integer name="config_shutdownBatteryTemperature">600</integer>
 
@@ -278,6 +280,9 @@
     <bool name="config_enableMultiUserUI">true</bool>
 
     <bool name="config_user_notification_of_restrictied_mobile_access">false</bool>
+
+    <!-- enable doze powersaving mode -->
+    <bool name="config_enableAutoPowerModes">true</bool>
 
     <!-- Performance profiles -->
 	<!--

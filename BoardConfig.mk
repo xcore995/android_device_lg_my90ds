@@ -126,4 +126,6 @@ USE_CAMERA_STUB := true
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/lg/my90ds/sepolicy
-    
+
+# SECCOMP
+BOARD_SECCOMP_POLICY += device/lg/my90ds/seccomp

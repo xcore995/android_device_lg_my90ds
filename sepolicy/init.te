@@ -5,7 +5,6 @@ allow init sysfs_sensor_file:dir relabelto;
 allow init sysfs_sensor_file:file { relabelto setattr };
 allow init sysfs_sensor_file:lnk_file relabelto;
 allow init tmpfs:lnk_file create;
-allow init { domain -lmkd }:process noatsecure;
 allow init nvram_data_file:dir { write search setattr read create open add_name };
 allow init platformblk_device:blk_file setattr;
 allow init block_device:blk_file {create read write};

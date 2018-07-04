@@ -69,7 +69,6 @@
 /dev/GAF008AF      u:object_r:camera_device:s0
 /dev/stpbt         u:object_r:hci_attach_dev:s0
 /dev/hwmsensor     u:object_r:sensors_device:s0
-/dev/gps           u:object_r:gps_device:s0
 /dev/stpgps        u:object_r:mnld_device:s0
 /dev/radio(/*)?    u:object_r:radio_device:s0
 /dev/aed[0-9]+     u:object_r:aed_device:s0
@@ -105,7 +104,6 @@
 /data/nvram(/.*)? u:object_r:nvram_data_file:s0
 /data/agps_supl(/.*)?    u:object_r:agpsd_data_file:s0
 /sys/class/gpsdrv/gps(/.*)?   u:object_r:sysfs_gpsdrv:s0
-/data/misc/gps(/.*)?   u:object_r:gps_data_file:s0
 /data/core(/.*)?         u:object_r:aee_core_data_file:s0
 /data/aee_exp(/.*)?      u:object_r:aee_exp_data_file:s0
 /data/dumpsys(/.*)?      u:object_r:aee_dumpsys_data_file:s0

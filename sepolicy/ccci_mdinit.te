@@ -19,8 +19,6 @@ allow ccci_mdinit protect_s_data_file:dir rw_dir_perms;
 allow ccci_mdinit protect_s_data_file:file create_file_perms;
 allow ccci_mdinit platformblk_device:blk_file { read write open };
 allow ccci_mdinit proc:file { read open ioctl };
-allow ccci_mdinit log_device:dir { search };
-allow ccci_mdinit log_device:chr_file { write open }; 
 allow ccci_mdinit bt_ver_cfg:file { read write getattr open };
 allow ccci_mdinit misc_device:chr_file { read write open };
 allow ccci_mdinit misc_sd_device:chr_file { read open };

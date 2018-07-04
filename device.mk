@@ -48,10 +48,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
      device/lg/my90ds/rootdir/system/etc/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
-PRODUCT_PACKAGES += \
-    gps.mt6582
-#   YGPS #for test
-
 # Audio	
 PRODUCT_COPY_FILES += \
     device/lg/my90ds/rootdir/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
@@ -126,6 +122,11 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf \
     android.hardware.wifi@1.0-service
+
+# GPS HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl \
+    gps.mt6582
 	
 # Graphics
 PRODUCT_PACKAGES += \

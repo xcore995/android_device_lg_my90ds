@@ -44,12 +44,12 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 MTK_PLATFORM := mt6582
 TARGET_KERNEL_SOURCE := kernel/lg/my90ds
 TARGET_KERNEL_CONFIG := magna_defconfig
-BOARD_KERNEL_CMDLINE := androidboot.hardware=magna androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := androidboot.hardware=magna androidboot.selinux=permissive selinux=0
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x00000100
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 
-TARGET_RECOVERY_FSTAB := device/lg/my90ds/rootdir/root/recovery.fstab
+#TARGET_RECOVERY_FSTAB := device/lg/my90ds/rootdir/root/recovery.fstab
 
 # Deodex
 WITH_DEXPREOPT := false

@@ -602,6 +602,8 @@ on boot
     chown shell system /proc/driver/wmt_dbg
     chown shell system /proc/driver/wmt_aee
 
+chmod 0666 /sys/class/timed_output/vibrator/enable
+
 #Define device for ATCID
     chmod 660 /dev/ttyGS0
     chown system /dev/ttyGS0

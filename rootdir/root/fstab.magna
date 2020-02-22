@@ -2,17 +2,17 @@
 #<src>           <mnt_point>         <type>    <mnt_flags and options>                 <fs_mgr_flags>
 # The filesystem that contains the filesystem checker binary (typically /system) cannot
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
-/dev/block/mmcblk0p9     /system             ext4      ro                                                          wait
-/dev/block/mmcblk0p10    /cache              ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check
-/dev/block/mmcblk0p11    /data               ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,resize,encryptable=/dev/encrypt
-/dev/block/mmcblk0p2     /protect_f          ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,formattable
-/dev/block/mmcblk0p3     /protect_s          ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,formattable
-/dev/block/mmcblk0p5     /persist-lg         ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,formattable
-/dev/block/mmcblk0p6     /persist            ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,formattable
-/dev/block/mmcblk0p7     /mpt                ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,formattable
-/dev/block/mmcblk0p8     /cust               ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,formattable
+/dev/mmcblk0p9     /system             ext4      ro                                                          wait
+/dev/mmcblk0p10    /cache              ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check
+/dev/mmcblk0p11    /data               ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,resize,encryptable=/dev/encrypt
+/dev/mmcblk0p2     /protect_f          ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,formattable
+/dev/mmcblk0p3     /protect_s          ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,formattable
+/dev/mmcblk0p5     /persist-lg         ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,formattable
+/dev/mmcblk0p6     /persist            ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,formattable
+/dev/mmcblk0p7     /mpt                ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,formattable
+/dev/mmcblk0p8     /cust               ext4      noatime,nosuid,nodev,noauto_da_alloc,discard                wait,check,formattable
 #/devices/platform/mtk-msdc.1/mmc_host	auto	auto	defaults        voldmanaged=sdcard1:auto
 /devices/platform/mtk-msdc.1/mmc_host*         fat        auto       defaults voldmanaged=sdcard0:auto,encryptable=userdata,noemulatedsd
 /devices/platform/mt_usb*		auto 	auto	defaults	voldmanaged=usb:auto
-/dev/block/zram0  none               swap      defaults    zramsize=536870912,zramstreams=4
+/dev/zram0  none               swap      defaults    zramsize=536870912,zramstreams=4
 /dev/bootimg		    /boot		emmc	defaults defaults

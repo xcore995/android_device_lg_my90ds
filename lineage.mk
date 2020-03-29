@@ -2,19 +2,16 @@
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
 
-# call dalvik heap config
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Call device specific makefile
-$(call inherit-product, device/lg/my90ds/device.mk)
+$(call inherit-product, device/lge/my90ds/device.mk)
 
 # call the proprietary setup
-$(call inherit-product, vendor/lg/my90ds/my90ds-vendor.mk)
+$(call inherit-product, vendor/lge/my90ds/my90ds-vendor.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := lineage_my90ds

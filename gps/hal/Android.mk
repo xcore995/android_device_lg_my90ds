@@ -57,7 +57,6 @@ LOCAL_SHARED_LIBRARIES := \
 	libcutils \
 	libhardware \
 	libcurl \
-	libandroid_runtime \
 	libnativehelper \
 	libcrypto \
 	libssl \

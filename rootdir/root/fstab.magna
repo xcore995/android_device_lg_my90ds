@@ -16,3 +16,9 @@
 /devices/platform/mt_usb*		auto 	auto	defaults	voldmanaged=usb:auto
 /dev/zram0  none               swap      defaults    zramsize=536870912,zramstreams=4
 /dev/bootimg		    /boot		emmc	defaults defaults
+/dev/nvram       /nvram              emmc      defaults    defaults
+/dev/pro_info    /proinfo            emmc      defaults    defaults
+/dev/seccfg      /seccfg             emmc      defaults    defaults
+/dev/sec_ro      /secro              emmc      defaults    defaults
+/dev/misc        /misc               emmc      defaults    defaults
+

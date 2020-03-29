@@ -8,7 +8,7 @@ on early-init
 
 on init
     export LD_PRELOAD "/system/lib/libmagna.so"
-    
+
     mkdir /protect_f 0771 system system
     mkdir /protect_s 0771 system system
 
@@ -427,7 +427,7 @@ on post-fs-data
     chmod 0660 /dev/mtkg2d
     chown system media /dev/mtkg2d
 
-    chmod 0660 /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
+    chmod 0666 /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
     chown media media /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
 
     # SMI
@@ -519,6 +519,9 @@ on boot
 
     chown root   system /sys/kernel/debug/binder/transaction_log_enable
 
+    # Allow writing to the kernel trace log.	
+    chmod 0777 /sys/kernel/debug/tracing/trace_marker
+
     chown system /sys/module/mlog/parameters/do_mlog
     chown system /sys/module/mlog/parameters/timer_intval
     chown root   radio  /sys/class/leds/lcd-backlight/duty
@@ -602,7 +605,9 @@ on boot
     chown shell system /proc/driver/wmt_dbg
     chown shell system /proc/driver/wmt_aee
 
-chmod 0666 /sys/class/timed_output/vibrator/enable
+    chmod 0666 /sys/class/timed_output/vibrator/enable
+    chown root system /system/etc/wlan.sh
+    chmod 0750 /system/etc/wlan.sh
 
 #Define device for ATCID
     chmod 660 /dev/ttyGS0
@@ -644,6 +649,12 @@ service start_modem /system/bin/md_ctrl 1
 
 service mobile_log_d /system/bin/mobile_log_d
     class main
+
+service wlan_status /system/bin/sh /system/etc/wlan.sh
+    class main
+    user system
+    group system wifi
+    oneshot
 
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/dumpstate -d -p -B \
@@ -869,6 +880,11 @@ service orientationd /system/bin/orientationd
     disabled
     user system
     group system input
+
+service enableswap /system/bin/sh /enableswap.sh
+    class core
+    oneshot
+
 service AcdApiDaemon /system/bin/AcdApiDaemon
     disabled
     oneshot

@@ -17,16 +17,11 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
     bionic.cpp \
-    ril.cpp \
-    ssl.c \
-    wvm.cpp \
-    ui.cpp \
-    xlog.c \
-    mtkaudio.cpp \
-    camera.cpp
+    ui.cpp
+
 
 LOCAL_C_INCLUDES += frameworks/av/media/mtp/ system/core/include/ frameworks/rs/server/ frameworks/av/include/ hardware/libhardware/include/
-LOCAL_SHARED_LIBRARIES := libbinder libcrypto liblog libstagefright_foundation libui libgui libcutils libutils libc
+LOCAL_SHARED_LIBRARIES := libbinder libc libui
 LOCAL_MODULE := libmagna
 LOCAL_MODULE_TAGS := optional
 

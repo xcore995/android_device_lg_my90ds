@@ -119,8 +119,6 @@ TARGET_GLOBAL_CPPFLAGS += -DANDROID_MULTI_SIM
 
 BOARD_EGL_CFG := device/lg/my90ds/rootdir/system/etc/egl.cfg
 
-# RIL
-BOARD_RIL_CLASS := ../../../device/lg/my90ds/ril/
 
 # Flags
 TARGET_GLOBAL_CFLAGS   += -mfpu=neon -mfloat-abi=softfp

@@ -158,8 +158,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
 	ro.allow.mock.location=0 \
 	ro.debuggable=0 \
 	ro.zygote=zygote32 \
-	camera.disable_zsl_mode=1 \
-	ro.telephony.ril_class=SproutRIL
+	camera.disable_zsl_mode=1 
 
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-filter=speed \

@@ -70,6 +70,62 @@ typedef enum {
 } ANDROID_VENDOR_SUB_COMMAND;
 
 typedef enum {
+    WIFI_SUBCMD_GET_CHANNEL_LIST = ANDROID_NL80211_SUBCMD_WIFI_RANGE_START,
+
+    WIFI_SUBCMD_GET_FEATURE_SET,                      /* 0x0002 */
+    WIFI_SUBCMD_GET_FEATURE_SET_MATRIX,               /* 0x0003 */
+    WIFI_SUBCMD_SET_PNO_RANDOM_MAC_OUI,               /* 0x0004 */
+    WIFI_SUBCMD_NODFS_SET,                            /* 0x0005 */
+    WIFI_SUBCMD_SET_COUNTRY_CODE,                     /* 0x0006 */
+
+    WIFI_SUBCMD_SET_RSSI_MONITOR,                     /* 0x0007 */
+    /* Add more sub commands here */
+} WIFI_SUB_COMMAND;
+
+typedef enum {
+    GSCAN_SUBCMD_GET_CAPABILITIES = ANDROID_NL80211_SUBCMD_GSCAN_RANGE_START,
+
+    GSCAN_SUBCMD_SET_CONFIG,                          /* 0x1001 */
+    GSCAN_SUBCMD_SET_SCAN_CONFIG,                     /* 0x1002 */
+    GSCAN_SUBCMD_ENABLE_GSCAN,                        /* 0x1003 */
+    GSCAN_SUBCMD_GET_SCAN_RESULTS,                    /* 0x1004 */
+    GSCAN_SUBCMD_SCAN_RESULTS,                        /* 0x1005 */
+
+    GSCAN_SUBCMD_SET_HOTLIST,                         /* 0x1006 */
+
+    GSCAN_SUBCMD_SET_SIGNIFICANT_CHANGE_CONFIG,       /* 0x1007 */
+    GSCAN_SUBCMD_ENABLE_FULL_SCAN_RESULTS,            /* 0x1008 */
+
+    GSCAN_SUBCMD_SET_EPNO_SSID = 0x100F,              /* 0x100F */
+
+    GSCAN_SUBCMD_SET_SSID_WHITE_LIST,                 /* 0x1010 */
+    GSCAN_SUBCMD_SET_ROAM_PARAMS,                     /* 0x1011 */
+    GSCAN_SUBCMD_ENABLE_LAZY_ROAM,                    /* 0x1012 */
+    GSCAN_SUBCMD_SET_BSSID_PREF,                      /* 0x1013 */
+    GSCAN_SUBCMD_SET_BSSID_BLACKLIST,                 /* 0x1014 */
+
+    GSCAN_SUBCMD_ANQPO_CONFIG,                        /* 0x1015 */
+    /* Add more sub commands here */
+
+} GSCAN_SUB_COMMAND;
+
+typedef enum {
+    WIFI_ATTRIBUTE_BAND = 1,
+    WIFI_ATTRIBUTE_NUM_CHANNELS,
+    WIFI_ATTRIBUTE_CHANNEL_LIST,
+
+    WIFI_ATTRIBUTE_NUM_FEATURE_SET,
+    WIFI_ATTRIBUTE_FEATURE_SET,
+    WIFI_ATTRIBUTE_PNO_RANDOM_MAC_OUI,
+    WIFI_ATTRIBUTE_NODFS_VALUE,
+    WIFI_ATTRIBUTE_COUNTRY_CODE,
+
+    WIFI_ATTRIBUTE_MAX_RSSI,
+    WIFI_ATTRIBUTE_MIN_RSSI,
+    WIFI_ATTRIBUTE_RSSI_MONITOR_START,
+} WIFI_ATTRIBUTE;
+
+typedef enum {
     GSCAN_EVENT_SIGNIFICANT_CHANGE_RESULTS,
     GSCAN_EVENT_HOTLIST_RESULTS_FOUND,
     GSCAN_EVENT_SCAN_RESULTS_AVAILABLE,
@@ -113,7 +169,7 @@ typedef struct {
     int cleanup_socks[2];                           // sockets used to implement wifi_cleanup
 
     bool in_event_loop;                             // Indicates that event loop is active
-    bool clean_up;                                  // Indication to clean up the socket
+    bool clean_up;                                  // Indication to exit since cleanup has started
 
     wifi_internal_event_handler event_handler;      // default event handler
     wifi_cleaned_up_handler cleaned_up_handler;     // socket cleaned up handler
@@ -138,7 +194,7 @@ typedef struct {
 #define PNO_SSID_LOST    0x2
 
 typedef struct wifi_pno_result {
-    unsigned char ssid[32];
+    unsigned char ssid[DOT11_MAX_SSID_LEN];
     unsigned char ssid_len;
     signed char rssi;
     u16 channel;
@@ -191,6 +247,14 @@ wifi_error wifi_cancel_cmd(wifi_request_id id, wifi_interface_handle iface);
 
 #define min(x, y)       ((x) < (y) ? (x) : (y))
 #define max(x, y)       ((x) > (y) ? (x) : (y))
+
+#define NULL_CHECK_RETURN(ptr, str, ret) \
+    do { \
+        if (!(ptr)) { \
+            ALOGE("%s(): null pointer - #ptr (%s)\n", __FUNCTION__, str); \
+            return ret; \
+        } \
+    } while (0)
 
 #endif
 

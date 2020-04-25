@@ -538,6 +538,9 @@ int WifiEvent::parse() {
 }
 
 int WifiRequest::create(int family, uint8_t cmd, int flags, int hdrlen) {
+
+    destroy();
+
     mMsg = nlmsg_alloc();
     if (mMsg != NULL) {
         genlmsg_put(mMsg, /* pid = */ 0, /* seq = */ 0, family,
@@ -635,6 +638,8 @@ int WifiCommand::requestEvent(int cmd) {
     if (res < 0)
         goto out;
 
+    ALOGD("WifiCommand::requestEvent waiting for response %d", cmd);
+
     res = nl_send_auto_complete(mInfo->cmd_sock, mMsg.getMessage());
     if (res < 0)
         goto out;
@@ -673,8 +678,7 @@ out:
     return res;
 }
 
-//////////////////////////////////////////////////////////////////////////
-// Event handlers
+/* Event handlers */
 int WifiCommand::response_handler(struct nl_msg *msg, void *arg) {
     // ALOGD("response_handler called");
     WifiCommand *cmd = (WifiCommand *)arg;
@@ -704,6 +708,7 @@ int WifiCommand::event_handler(struct nl_msg *msg, void *arg) {
     return res;
 }
 
+/* Other event handlers */
 int WifiCommand::valid_handler(struct nl_msg *msg, void *arg) {
     // ALOGD("valid_handler called");
     int *err = (int *)arg;
@@ -729,6 +734,6 @@ int WifiCommand::error_handler(struct sockaddr_nl *nla, struct nlmsgerr *err, vo
     int *ret = (int *)arg;
     *ret = err->error;
 
-    // ALOGD("error_handler called, err->error=%d", err->error);
+    // ALOGD("error_handler received : %d", err->error);
     return NL_SKIP;
 }

@@ -13,7 +13,6 @@
 #include <netlink/object-api.h>
 #include <netlink/netlink.h>
 #include <netlink/socket.h>
-//#include <netlink-types.h>
 
 #include "nl80211_copy.h"
 #include "sync.h"
@@ -25,6 +24,12 @@
 #include "wifi_hal.h"
 #include "common.h"
 #include "cpp_bindings.h"
+
+namespace android {
+
+}
+
+using namespace android;
 
 typedef enum {
     WIFI_OFFLOAD_START_MKEEP_ALIVE = ANDROID_NL80211_SUBCMD_WIFI_OFFLOAD_RANGE_START,
@@ -61,14 +66,14 @@ public:
     // constructor for start sending
     MKeepAliveCommand(wifi_interface_handle iface, u8 index, u8 *ip_packet, u16 ip_packet_len,
             u8 *src_mac_addr, u8 *dst_mac_addr, u32 period_msec, GetCmdType cmdType)
-        : WifiCommand(iface, 0), mIndex(index), mIpPkt(ip_packet), mIpPktLen(ip_packet_len),
-        mSrcMacAddr(src_mac_addr), mDstMacAddr(dst_mac_addr), mPeriodMsec(period_msec),
-        mType(cmdType)
+        : WifiCommand("MKeepAliveCommand", iface, 0), mIndex(index), mIpPkt(ip_packet),
+        mIpPktLen(ip_packet_len), mSrcMacAddr(src_mac_addr), mDstMacAddr(dst_mac_addr),
+        mPeriodMsec(period_msec), mType(cmdType)
     { }
 
     // constructor for stop sending
     MKeepAliveCommand(wifi_interface_handle iface, u8 index, GetCmdType cmdType)
-        : WifiCommand(iface, 0), mIndex(index), mType(cmdType)
+        : WifiCommand("MKeepAliveCommand", iface, 0), mIndex(index), mType(cmdType)
     { }
 
     int createRequest(WifiRequest &request) {
@@ -203,9 +208,10 @@ wifi_error wifi_start_sending_offloaded_packet(wifi_request_id index, wifi_inter
             && (ip_packet_len <= MKEEP_ALIVE_IP_PKT_MAX)) {
         MKeepAliveCommand *cmd = new MKeepAliveCommand(iface, index, ip_packet, ip_packet_len,
                 src_mac_addr, dst_mac_addr, period_msec, START_MKEEP_ALIVE);
-        wifi_error err = (wifi_error) cmd->start();
-        delete cmd;
-        return err;
+        NULL_CHECK_RETURN(cmd, "memory allocation failure", WIFI_ERROR_OUT_OF_MEMORY);
+        wifi_error result = (wifi_error)cmd->start();
+        cmd->releaseRef();
+        return result;
     } else {
         ALOGE("Invalid mkeep_alive parameters");
         return  WIFI_ERROR_INVALID_ARGS;
@@ -217,9 +223,10 @@ wifi_error wifi_stop_sending_offloaded_packet(wifi_request_id index, wifi_interf
 {
     if (index > 0 && index <= N_AVAIL_ID) {
         MKeepAliveCommand *cmd = new MKeepAliveCommand(iface, index, STOP_MKEEP_ALIVE);
-        wifi_error err = (wifi_error) cmd->start();
-        delete cmd;
-        return err;
+        NULL_CHECK_RETURN(cmd, "memory allocation failure", WIFI_ERROR_OUT_OF_MEMORY);
+        wifi_error result = (wifi_error)cmd->start();
+        cmd->releaseRef();
+        return result;
     } else {
         ALOGE("Invalid mkeep_alive parameters");
         return  WIFI_ERROR_INVALID_ARGS;

@@ -119,9 +119,6 @@ SIM_COUNT := 2
 
 BOARD_EGL_CFG := device/lge/my90ds/rootdir/system/etc/egl.cfg
 
-# RIL
-BOARD_RIL_CLASS := ../../../device/lg/my90ds/ril/
-
 TARGET_USERIMAGES_USE_EXT4:=true
 USE_CAMERA_STUB := true
 

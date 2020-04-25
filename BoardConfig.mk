@@ -123,3 +123,5 @@ BOARD_SEPOLICY_DIRS += \
 
 # SECCOMP
 BOARD_SECCOMP_POLICY += device/lge/my90ds/seccomp
+
+DEVICE_MANIFEST_FILE := device/lge/my90ds/manifest.xml

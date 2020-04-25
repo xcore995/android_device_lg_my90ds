@@ -48,6 +48,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/my90ds/rootdir/system/etc/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
+# HIDL Manifest
+PRODUCT_COPY_FILES += \
+    device/lge/my90ds/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
+
 # Audio	
 PRODUCT_COPY_FILES += \
     device/lge/my90ds/rootdir/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
@@ -178,12 +182,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.default \
     power.mt6582
-    
-# HIDL
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
-
-
 	
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
 	ro.crypto.state=unencrypted \

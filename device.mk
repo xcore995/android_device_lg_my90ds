@@ -117,10 +117,6 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     libaudio-resampler \
     tinymix
-
-# FMRadio
-PRODUCT_PACKAGES += \
-	FMRadio
 	
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl 

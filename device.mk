@@ -48,6 +48,21 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/my90ds/rootdir/system/etc/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl \
+    gps.mt6582
+
+# GPS force mode
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.force.gps.mode=gnss
+
+# Vibrator HAL
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl
+
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl
+
 # HIDL Manifest
 PRODUCT_COPY_FILES += \
     device/lge/my90ds/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
@@ -95,64 +110,58 @@ PRODUCT_COPY_FILES += \
     device/lge/my90ds/rootdir/root/init.magna.rc:root/init.magna.rc
 
 PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
     libaudio-resampler \
-    tinymix \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio.effect@2.0-impl
-    
+    tinymix
 
 # FMRadio
 PRODUCT_PACKAGES += \
 	FMRadio
 	
-# Camera HAL
 PRODUCT_PACKAGES += \
-    camera.device@1.0-impl \
-    camera.device@3.2-impl \
-    android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service \
-    Snap
+    android.hardware.bluetooth@1.0-impl 
 
-# Wifi
-PRODUCT_PACKAGES += \
-    libwpa_client \
-    hostapd \
-    dhcpcd.conf \
-    wificond \
-    wpa_supplicant \
-    wpa_supplicant.conf \
-    android.hardware.wifi@1.0-service
-
-# GPS HAL
-PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl \
-    gps.mt6582
-	
-# Graphics
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.mapper@2.0-impl \
-    android.hardware.memtrack@1.0-impl
-
-# Sensors HAL
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl \
-    android.hardware.light@2.0-service \
-    android.hardware.sensors@1.0-impl \
-    android.hardware.sensors@1.0-service
-    
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl
-    
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl
+	
+# Graphics
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.renderscript@1.0-impl
+# Camera HAL
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl-legacy
 
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
+
+PRODUCT_PACKAGES += \
+    libmagna
+    
+# USB	
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service \
+
+# Wifi
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
+    wificond \
+    libwpa_client \
+    hostapd \
+    dhcpcd.conf \
+    wpa_supplicant \
+    wpa_supplicant.conf
+	
 PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory
@@ -170,17 +179,16 @@ PRODUCT_PACKAGES += \
     setup_fs \
     e2fsck
     
-# XCORE995 SHIM LIBS start  
-  
-    
+# Thermal HAL
 PRODUCT_PACKAGES += \
-    libmagna
-    
-# XCORE995 SHIM LIBS end
+    android.hardware.thermal@1.0-impl
+
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl
 
 # Power
 PRODUCT_PACKAGES += \
-    power.default \
+    android.hardware.power@1.0-impl \
     power.mt6582
 	
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \

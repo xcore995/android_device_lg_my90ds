@@ -11,10 +11,10 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Call device specific makefile
-$(call inherit-product, device/lg/my90ds/device.mk)
+$(call inherit-product, device/lge/my90ds/device.mk)
 
 # call the proprietary setup
-$(call inherit-product, vendor/lg/my90ds/my90ds-vendor.mk)
+$(call inherit-product, vendor/lge/my90ds/my90ds-vendor.mk)
 
 TARGET_BOOTANIMATION_HALF_RES := true
 

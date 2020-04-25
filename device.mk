@@ -13,7 +13,7 @@
 # limitations under the License.
 
 DEVICE_PACKAGE_OVERLAYS := \
-    device/lg/my90ds/overlay
+    device/lge/my90ds/overlay
 	
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -46,49 +46,49 @@ PRODUCT_COPY_FILES += \
 	
 # GPS
 PRODUCT_COPY_FILES += \
-     device/lg/my90ds/rootdir/system/etc/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
+    device/lge/my90ds/rootdir/system/etc/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
 # Audio	
 PRODUCT_COPY_FILES += \
-    device/lg/my90ds/rootdir/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    device/lg/my90ds/rootdir/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
-    device/lg/my90ds/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
-    device/lg/my90ds/rootdir/system/etc/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml \
-    device/lg/my90ds/rootdir/system/etc/media_codecs_mediatek_video.xml:system/etc/media_codecs_mediatek_video.xml \
-    device/lg/my90ds/rootdir/system/etc/mtk_omx_core.cfg:system/etc/mtk_omx_core.cfg \
+    device/lge/my90ds/rootdir/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
+    device/lge/my90ds/rootdir/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
+    device/lge/my90ds/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
+    device/lge/my90ds/rootdir/system/etc/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml \
+    device/lge/my90ds/rootdir/system/etc/media_codecs_mediatek_video.xml:system/etc/media_codecs_mediatek_video.xml \
+    device/lge/my90ds/rootdir/system/etc/mtk_omx_core.cfg:system/etc/mtk_omx_core.cfg \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml
 
 # Thermal
 PRODUCT_COPY_FILES += \
-     device/lg/my90ds/rootdir/system/etc/thermal/thermal.conf:system/etc/.tp/thermal.conf \
-     device/lg/my90ds/rootdir/system/etc/thermal/.ht120.mtc:system/etc/.tp/.ht120.mtc \
-     device/lg/my90ds/rootdir/system/etc/thermal/thermal.off.conf:system/etc/.tp/thermal.off.conf
+    device/lge/my90ds/rootdir/system/etc/thermal/thermal.conf:system/etc/.tp/thermal.conf \
+    device/lge/my90ds/rootdir/system/etc/thermal/.ht120.mtc:system/etc/.tp/.ht120.mtc \
+    device/lge/my90ds/rootdir/system/etc/thermal/thermal.off.conf:system/etc/.tp/thermal.off.conf
 
 # Keylayout
 PRODUCT_COPY_FILES += \
-    device/lg/my90ds/rootdir/system/usr/keylayout/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl
+    device/lge/my90ds/rootdir/system/usr/keylayout/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl
 
 # Hostapd
 PRODUCT_COPY_FILES += \
-    device/lg/my90ds/rootdir/system/etc/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
-    device/lg/my90ds/rootdir/system/etc/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
-    device/lg/my90ds/rootdir/system/etc/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
+    device/lge/my90ds/rootdir/system/etc/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
+    device/lge/my90ds/rootdir/system/etc/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
+    device/lge/my90ds/rootdir/system/etc/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
 	
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 # RAMDISK
 PRODUCT_COPY_FILES += \
-    device/lg/my90ds/rootdir/root/init.magna_common.rc:root/init.magna_common.rc \
-    device/lg/my90ds/rootdir/root/init.protect.rc:root/init.protect.rc \
-    device/lg/my90ds/rootdir/root/fstab.magna:root/fstab.magna \
-    device/lg/my90ds/rootdir/root/init.modem.rc:root/init.modem.rc \
-    device/lg/my90ds/rootdir/root/factory_init.rc:root/factory_init.rc \
-    device/lg/my90ds/rootdir/root/ueventd.magna.rc:root/ueventd.magna.rc \
-    device/lg/my90ds/rootdir/root/init.magna.usb.rc:root/init.magna.usb.rc \
-    device/lg/my90ds/rootdir/root/init.zeta0y_core.rc:root/init.zeta0y_core.rc \
-    device/lg/my90ds/rootdir/root/init.magna.rc:root/init.magna.rc 
+    device/lge/my90ds/rootdir/root/init.magna_common.rc:root/init.magna_common.rc \
+    device/lge/my90ds/rootdir/root/init.protect.rc:root/init.protect.rc \
+    device/lge/my90ds/rootdir/root/fstab.magna:root/fstab.magna \
+    device/lge/my90ds/rootdir/root/init.modem.rc:root/init.modem.rc \
+    device/lge/my90ds/rootdir/root/factory_init.rc:root/factory_init.rc \
+    device/lge/my90ds/rootdir/root/ueventd.magna.rc:root/ueventd.magna.rc \
+    device/lge/my90ds/rootdir/root/init.magna.usb.rc:root/init.magna.usb.rc \
+    device/lge/my90ds/rootdir/root/init.zeta0y_core.rc:root/init.zeta0y_core.rc \
+    device/lge/my90ds/rootdir/root/init.magna.rc:root/init.magna.rc
 
 PRODUCT_PACKAGES += \
     audio.a2dp.default \

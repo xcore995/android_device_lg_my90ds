@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-LOCAL_PATH := device/lg/my90ds
+LOCAL_PATH := device/lge/my90ds
 # Board
 TARGET_BOARD_PLATFORM := mt6582
 MTK_BOARD_PLATFORMS := mt6582
@@ -39,9 +39,10 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # kernel stuff
-#BOARD_CUSTOM_BOOTIMG_MK := device/lg/my90ds/tools/bootimg.mk xcore: No mtk-header
+#BOARD_CUSTOM_BOOTIMG_MK := device/lge/my90ds/tools/bootimg.mk xcore: No mtk-header
+#TARGET_PREBUILT_KERNEL := device/lge/my90ds/kernel
 MTK_PLATFORM := mt6582
-TARGET_KERNEL_SOURCE := kernel/lg/my90ds
+TARGET_KERNEL_SOURCE := kernel/lge/my90ds
 TARGET_KERNEL_CONFIG := magna_defconfig
 BOARD_KERNEL_CMDLINE := androidboot.hardware=magna androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x00000100
@@ -49,7 +50,7 @@ BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_IMAGE_NAME := zImage
 
-TARGET_RECOVERY_FSTAB := device/lg/my90ds/rootdir/root/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/lge/my90ds/rootdir/root/recovery.fstab
 
 # Deodex
 WITH_DEXPREOPT := false
@@ -61,7 +62,7 @@ BLOCK_BASED_OTA := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_MTK := true
 BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lg/my90ds/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/my90ds/bluetooth
 
 # OpenGL
 USE_OPENGL_RENDERER := true
@@ -102,12 +103,12 @@ TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap2wake"
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
 
-TARGET_SYSTEM_PROP := device/lg/my90ds/system.prop
+TARGET_SYSTEM_PROP := device/lge/my90ds/system.prop
 
 # Dual SIM
 SIM_COUNT := 2
 
-BOARD_EGL_CFG := device/lg/my90ds/rootdir/system/etc/egl.cfg
+BOARD_EGL_CFG := device/lge/my90ds/rootdir/system/etc/egl.cfg
 
 # RIL
 BOARD_RIL_CLASS := ../../../device/lg/my90ds/ril/
@@ -118,7 +119,7 @@ USE_CAMERA_STUB := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-    device/lg/my90ds/sepolicy
+    device/lge/my90ds/sepolicy
 
 # SECCOMP
-BOARD_SECCOMP_POLICY += device/lg/my90ds/seccomp
+BOARD_SECCOMP_POLICY += device/lge/my90ds/seccomp

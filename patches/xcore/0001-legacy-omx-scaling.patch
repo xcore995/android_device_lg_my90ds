@@ -1,0 +1,36 @@
+From c6c8e78b6439eab1b14960171b0419c69e83e550 Mon Sep 17 00:00:00 2001
+From: xcore995 <arman.p95@gmail.com>
+Date: Tue, 21 Apr 2020 05:38:13 -0400
+Subject: [PATCH] legacy omx scaling
+
+---
+ media/libstagefright/ACodec.cpp | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/media/libstagefright/ACodec.cpp b/media/libstagefright/ACodec.cpp
+index def8ada3c..ec7b0f179 100644
+--- a/media/libstagefright/ACodec.cpp
++++ b/media/libstagefright/ACodec.cpp
+@@ -7887,6 +7887,9 @@ bool ACodec::OutputPortSettingsChangedState::onOMXEvent(
+                     ALOGW("ignoring EventCmdComplete OMX_CommandPortEnable for port %u", data2);
+                     return false;
+                 }
++                sp<AMessage> reply = new AMessage(kWhatOutputBufferDrained, mCodec);
++                mCodec->onOutputFormatChanged();
++                mCodec->sendFormatChange();
+ 
+                 ALOGV("[%s] Output port now reenabled.", mCodec->mComponentName.c_str());
+ 
+@@ -7902,6 +7905,9 @@ bool ACodec::OutputPortSettingsChangedState::onOMXEvent(
+             return false;
+         }
+ 
++        case OMX_EventPortSettingsChanged:
++            return true;
++        break;
+         default:
+             return BaseState::onOMXEvent(event, data1, data2);
+     }
+-- 
+2.17.1
+

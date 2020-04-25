@@ -1,0 +1,40 @@
+From edf009c832b7b99eb240476e1243dad7b5379389 Mon Sep 17 00:00:00 2001
+From: xcore995 <arman.p95@gmail.com>
+Date: Tue, 21 Apr 2020 11:57:17 -0400
+Subject: [PATCH] xlog patch
+
+---
+ libcutils/klog.cpp | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/libcutils/klog.cpp b/libcutils/klog.cpp
+index d301276f9..c8cb7a49a 100644
+--- a/libcutils/klog.cpp
++++ b/libcutils/klog.cpp
+@@ -27,6 +27,23 @@
+ #include <cutils/android_get_control_file.h>
+ #include <cutils/klog.h>
+ 
++#include <cutils/log.h>
++extern "C"{
++struct xlog_record {
++	const char *tag_str;
++	const char *fmt_str;
++	int prio;
++};
++int __attribute__((weak)) __xlog_buf_printf(int bufid, const struct xlog_record *rec, ...)
++{
++  va_list args;
++  va_start(args, rec);
++  LOG_PRI_VA(rec->prio, rec->tag_str, rec->fmt_str, args);
++  bufid = 1;
++  va_end(args);
++  return 0;
++}
++}
+ static int klog_level = KLOG_INFO_LEVEL;
+ 
+ void klog_set_level(int level) {
+-- 
+2.17.1
+

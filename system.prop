@@ -76,7 +76,6 @@ persist.radio.multisim.config=dsds
 ##XCORE
 media.stagefright.legacyencoder=true
 media.stagefright.less-secure=true
-persist.media.treble_omx=false
 ##XCORE
 ##
 persist.radio.fd.counter=15

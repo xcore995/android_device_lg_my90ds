@@ -61,7 +61,8 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl
 
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl
+    android.hardware.light@2.0-impl \
+    lights.mt6582
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \

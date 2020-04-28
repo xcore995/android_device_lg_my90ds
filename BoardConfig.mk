@@ -29,6 +29,7 @@ TARGET_ARCH_VARIANT_CPU := cortex-a7
 TARGET_CPU_VARIANT:= cortex-a7
 TARGET_CPU_MEMCPY_OPT_DISABLE := true
 
+
 # Storage allocations
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
@@ -56,8 +57,6 @@ TARGET_RECOVERY_FSTAB := device/lge/my90ds/rootdir/root/recovery.fstab
 WITH_DEXPREOPT := false
 DISABLE_DEXPREOPT := true
 
-BLOCK_BASED_OTA := true
-
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_MTK := true
@@ -66,7 +65,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/my90ds/bluetooth
 
 # OpenGL
 USE_OPENGL_RENDERER := true
-BOARD_EGL_WORKAROUND_BUG_10194508 := true
+
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_USES_NON_TREBLE_CAMERA := true
 NEEDS_LEGACY_CAMERA_HAL1_DYN_NATIVE_HANDLE := true
@@ -118,6 +117,7 @@ TARGET_SYSTEM_PROP := device/lge/my90ds/system.prop
 
 # Dual SIM
 SIM_COUNT := 2
+
 
 BOARD_EGL_CFG := device/lge/my90ds/rootdir/system/etc/egl.cfg
 

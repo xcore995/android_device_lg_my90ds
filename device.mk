@@ -142,7 +142,8 @@ PRODUCT_PACKAGES += \
     libgui_ext
 # Camera HAL
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl-legacy
+    android.hardware.camera.provider@2.4-impl-legacy \
+    libcam.client
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \

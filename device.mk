@@ -183,7 +183,11 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl
 
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl
+    android.hardware.sensors@1.0-impl \
+    sensors.magna
+
+PRODUCT_COPY_FILES += \
+    device/lge/my90ds/rootdir/system/etc/_hals.conf:system/vendor/etc/sensors/_hals.conf
 
 # Power
 PRODUCT_PACKAGES += \

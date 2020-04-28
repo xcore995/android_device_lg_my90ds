@@ -13,7 +13,9 @@
 # limitations under the License.
 
 DEVICE_PACKAGE_OVERLAYS := \
-    device/lge/my90ds/overlay
+    device/lge/my90ds/overlay \
+    device/lge/my90ds/overlay-lineage
+
 	
 # Permissions
 PRODUCT_COPY_FILES += \

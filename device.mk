@@ -63,6 +63,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl
 
+# Seccomp policy
+PRODUCT_COPY_FILES += \
+    device/lge/my90ds/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
+
 # HIDL Manifest
 PRODUCT_COPY_FILES += \
     device/lge/my90ds/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml

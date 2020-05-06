@@ -377,9 +377,9 @@ extern "C" void RIL_myProxyTimedCallback (RIL_TimedCallback callback, void *para
     RLOGD("RIL_requestProxyTimedCallback:***proxyId=%d,pthread_self()=%lu",
 					proxyId, pthread_self());
 #endif
-    RIL_requestProxyTimedCallback(callback, param, relativeTime, proxyId);
+    //RIL_requestProxyTimedCallback(callback, param, relativeTime, proxyId);
 // replaced
-//	internalRequestTimedCallback(callback, param, relativeTime, proxyId);
+	internalRequestTimedCallback(callback, param, relativeTime, proxyId);
     if (proxyId > -1) {
 	RLOGD("internalRequestTimedCallback, ***pthread_self()=%lu cid=%d",
 				pthread_self(), proxyId);

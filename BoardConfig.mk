@@ -50,7 +50,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 MTK_PLATFORM := mt6582
 TARGET_KERNEL_SOURCE := kernel/lge/my90ds
 TARGET_KERNEL_CONFIG := magna_defconfig
-BOARD_KERNEL_CMDLINE := androidboot.hardware=magna androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32S1,32S1 androidboot.hardware=magna androidboot.selinux=permissive 
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x00000100
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048

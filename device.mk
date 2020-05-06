@@ -70,6 +70,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/lge/my90ds/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
 
+PRODUCT_PROPERTY_OVERRIDES += debug.hwui.renderer=skiagl
 PRODUCT_PROPERTY_OVERRIDES += debug.hwui.use_buffer_age=false
 PRODUCT_PROPERTY_OVERRIDES += persist.media.treble_omx=false
 PRODUCT_PROPERTY_OVERRIDES += media.settings.xml=/system/etc/media_profiles.xml

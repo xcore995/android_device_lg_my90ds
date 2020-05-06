@@ -1,12 +1,3 @@
-Works
-   wifi
-   audio
-   etc
-Bugs
-   RIL
-   camera
-   may be more
- 
 LG MAGNA
 ==============
 
@@ -25,4 +16,4 @@ Camera  | 5MPx
 
 ![LG Magna](http://cdn.gadgets360.com/content/assets/products/lg-magna-2411_480X960_1439192736.jpg)
 
-This branch is for building AOSP 8.x Oreo ROMS.
+This branch is for building Lineage 15.1 ROM.

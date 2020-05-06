@@ -630,6 +630,10 @@ on property:vold.decrypt=trigger_restart_framework
 on property:vold.decrypt=trigger_shutdown_framework
     start stop_modem
 
+on charger
+    wait /dev/block/mmcblk0p9
+    mount ext4 /dev/block/mmcblk0p9 /system ro barrier=1
+
 service stop_modem /system/bin/md_ctrl 0
     class main
     disabled
@@ -905,10 +909,10 @@ service thermal_manager /system/bin/thermal_manager
     user root
     oneshot
 
-service battery_charger /charger
+service charger /sbin/chargerlogo
     class charger
+    critical
 
-    seclabel u:r:healthd:s0
 #
 # Connectivity related services (Begin)
 #

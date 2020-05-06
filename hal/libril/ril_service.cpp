@@ -3906,25 +3906,11 @@ int radio::getOperatorResponse(int slotId,
 	} else {
 	    char **resp = (char **) response;
     RLOGD("getOperatorResponse: numStrings=%d", numStrings);
-#ifdef MTK_HARDWARE
-//	    longName = convertCharPtrToHidlString(resp[0]);
-//	    numeric = convertCharPtrToHidlString(resp[2]);
-	    char *p = (char*)getname(atoi(resp[0]));
-	    if (p == NULL) {
-		longName == numeric;
-		shortName = numeric;
-	    } else {
-		longName = convertCharPtrToHidlString(p);
-	        if (strlen(p) > 24)
-		    shortName == numeric;
-		else
-		    shortName == longName;
-	    }
-#else
+
 	    longName = convertCharPtrToHidlString(resp[0]);
 	    shortName = (numStrings > 1) ? convertCharPtrToHidlString(resp[1]) : longName;
 	    numeric = (numStrings > 2) ? convertCharPtrToHidlString(resp[2]) : shortName;
-#endif
+
 	}
 	Return<void> retStatus = radioService[slotId]->mRadioResponse->getOperatorResponse(
 		responseInfo, longName, shortName, numeric);

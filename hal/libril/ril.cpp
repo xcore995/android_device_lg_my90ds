@@ -175,7 +175,7 @@ extern "C" int RIL_queryMyProxyIdByThread();
 extern "C" int isRequestTokFromMal(RIL_Token t);
 extern void RIL_startRILProxys();
 // replaced in mtk-ril
-extern "C" void getIaCache(char* cache);
+//extern "C" void getIaCache(char* cache);
 // see what it is doing
 extern void enqueue(RequestInfo* pRI, void *buffer, size_t buflen,
 		    UserCallbackInfo* pUCI, RIL_SOCKET_ID socket_id);
@@ -446,7 +446,7 @@ int isInitialAttachAPN(const char *requestedApn, const char * protocol,
 		int authType, const char *username, const char* password, RILChannelCtx *pChannel)
 {
     char iaProperty[PROPERTY_VALUE_MAX * 2] = { 0 };
-    getIaCache(iaProperty);
+    //getIaCache(iaProperty);
     RLOGD("[RILData_GSM_IRAT]: isInitialAttachApn IaCache=%s", iaProperty);
     if (strlen(iaProperty) == 0) {
 	// No initial attach APN, return false.
@@ -611,14 +611,6 @@ void onNewCommandConnect(RIL_SOCKET_ID socket_id) {
     char prop[PROPERTY_VALUE_MAX];
     RLOGD("**onNewCommandConnect,socket=%d,pthread=%lu",socket_id, pthread_self());
 
-#ifdef MTK_HARDWARE
-#define GSM_RIL_INIT	"gsm.ril.init"
-    do {
-	sleep(1);  // sleep 1s
-	// wait until init callbacks finished, OR haven't started
-	property_get(GSM_RIL_INIT, prop, "1");
-    } while (strcmp(prop, "1"));
-#endif
     RIL_UNSOL_RESPONSE(RIL_UNSOL_RIL_CONNECTED, &rilVer, sizeof(rilVer), socket_id);
 
     // implicit radio state changed
@@ -647,20 +639,7 @@ void onNewCommandConnect(RIL_SOCKET_ID socket_id) {
 	property_set(PROPERTY_RIL_IMPL, "unavailable");
     }
 
-#ifdef MTK_HARDWARE
-//    RIL_UNSOL_RESPONSE(RIL_UNSOL_SET_ATTACH_APN, NULL, 0, socket_id); // reset apn??
-// MTK modem stuff
-#define RIL_MUXREP_CASE	"ril.mux.report.case"
-#define RIL_MUXREPORT	"ril.muxreport"
-    if ( 0 == property_get(RIL_MUXREPORT, prop, NULL) && (socket_id == RIL_SOCKET_2)) {
-	RLOGD("**reset modem**");
-	property_set(GSM_RIL_INIT, "0");		// clear ril init
-	// reset modem and service once after boot
-	property_set(RIL_MUXREP_CASE, "2");		// reset modem 1
-	property_set("ctl.start", "muxreport-daemon");	// activate
-	property_set(RIL_MUXREPORT, "0");		// clear
-    }
-#endif
+
 }
 
 //static 

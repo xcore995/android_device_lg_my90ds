@@ -521,7 +521,7 @@ on boot
     chmod 0664 /sys/class/leds/lcd-backlight/brightness
 
     chown root   system /sys/kernel/debug/binder/transaction_log_enable
-
+    chmod 0222 /sys/kernel/debug/tracing/trace_marker
     chown system /sys/module/mlog/parameters/do_mlog
     chown system /sys/module/mlog/parameters/timer_intval
     chown root   radio  /sys/class/leds/lcd-backlight/duty

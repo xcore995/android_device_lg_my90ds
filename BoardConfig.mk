@@ -100,6 +100,7 @@ WIFI_DRIVER_STATE_OFF := 0
 # Fix scaling on older omx
 TARGET_OMX_LEGACY_RESCALING := true
 
+TARGET_HAS_NO_WLAN_STATS := true
 #Mediatek flags
 BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true

@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <stdint.h>
+#include <string>
 #include <ui/GraphicBuffer.h>
 #include <gui/BufferQueue.h>
 #include <media/stagefright/MediaBuffer.h>
@@ -91,4 +93,8 @@ extern "C" {
         _ZN7android18BufferItemConsumerC2ERKNS_2spINS_22IGraphicBufferConsumerEEEyib(consumer, static_cast<uint64_t>(consumerUsage), bufferCount, controlledByApp);
     }
 #endif
+void _ZN7android12ConsumerBase7setNameERKNS_7String8E(const android::String8& name);
+void _ZN7android18BufferItemConsumer7setNameERKNS_7String8E(const android::String8& name) {
+    _ZN7android12ConsumerBase7setNameERKNS_7String8E(name);
+}
 }

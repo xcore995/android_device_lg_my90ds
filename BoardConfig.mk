@@ -59,9 +59,6 @@ BOARD_KERNEL_IMAGE_NAME := zImage
 
 TARGET_RECOVERY_FSTAB := device/lge/my90ds/rootdir/root/recovery.fstab
 
-# Deodex
-WITH_DEXPREOPT := false
-DISABLE_DEXPREOPT := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -69,8 +66,6 @@ BOARD_HAVE_BLUETOOTH_MTK := true
 BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/my90ds/bluetooth
 
-# OpenGL
-USE_OPENGL_RENDERER := true
 
 # Low Memory Devices
 MALLOC_SVELTE := true
@@ -123,8 +118,6 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BOARD_CHARGER_ENABLE_SUSPEND := false
 BACKLIGHT_PATH := "/sys/class/leds/lcd-backlight/brightness"
 
-BOARD_CHARGING_CMDLINE_NAME := "androidboot.mode"
-BOARD_CHARGING_CMDLINE_VALUE := "chargerlogo"
 
 TARGET_SYSTEM_PROP := device/lge/my90ds/system.prop
 

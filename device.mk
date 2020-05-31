@@ -74,6 +74,7 @@ PRODUCT_PROPERTY_OVERRIDES += debug.hwui.renderer=skiagl
 PRODUCT_PROPERTY_OVERRIDES += debug.hwui.use_buffer_age=false
 PRODUCT_PROPERTY_OVERRIDES += persist.media.treble_omx=false
 PRODUCT_PROPERTY_OVERRIDES += media.settings.xml=/system/etc/media_profiles.xml
+PRODUCT_PROPERTY_OVERRIDES += ro.boot.btmacaddr=00:00:00:00:00:00
 
 # HIDL Manifest
 PRODUCT_COPY_FILES += \

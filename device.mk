@@ -156,7 +156,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl-legacy \
     libcam.client \
-    libcam.utils.sensorlistener
+    libcam.utils.sensorlistener \
+    Snap
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \

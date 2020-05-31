@@ -1,17 +1,18 @@
-From c6c8e78b6439eab1b14960171b0419c69e83e550 Mon Sep 17 00:00:00 2001
+From 6952782d0ec24f207fef70b77bfe15699d639f49 Mon Sep 17 00:00:00 2001
 From: xcore995 <arman.p95@gmail.com>
-Date: Tue, 21 Apr 2020 05:38:13 -0400
-Subject: [PATCH] legacy omx scaling
+Date: Sun, 31 May 2020 13:51:20 +0000
+Subject: [PATCH 2/2] Legacy rescaling patch
 
+Change-Id: I1c44efefa3bdacc6e51fddb290894135da9141a7
 ---
- media/libstagefright/ACodec.cpp | 6 ++++++
- 1 file changed, 6 insertions(+)
+ media/libstagefright/ACodec.cpp | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
 diff --git a/media/libstagefright/ACodec.cpp b/media/libstagefright/ACodec.cpp
-index def8ada3c..ec7b0f179 100644
+index 0ecb8bdaa..b8395a37b 100644
 --- a/media/libstagefright/ACodec.cpp
 +++ b/media/libstagefright/ACodec.cpp
-@@ -7887,6 +7887,9 @@ bool ACodec::OutputPortSettingsChangedState::onOMXEvent(
+@@ -7941,6 +7941,9 @@ bool ACodec::OutputPortSettingsChangedState::onOMXEvent(
                      ALOGW("ignoring EventCmdComplete OMX_CommandPortEnable for port %u", data2);
                      return false;
                  }
@@ -21,16 +22,17 @@ index def8ada3c..ec7b0f179 100644
  
                  ALOGV("[%s] Output port now reenabled.", mCodec->mComponentName.c_str());
  
-@@ -7902,6 +7905,9 @@ bool ACodec::OutputPortSettingsChangedState::onOMXEvent(
+@@ -7956,6 +7959,10 @@ bool ACodec::OutputPortSettingsChangedState::onOMXEvent(
              return false;
          }
  
 +        case OMX_EventPortSettingsChanged:
 +            return true;
-+        break;
++            break;
++
          default:
              return BaseState::onOMXEvent(event, data1, data2);
      }
 -- 
-2.17.1
+2.25.1
 

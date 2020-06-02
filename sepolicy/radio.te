@@ -1,2 +1,0 @@
-allow radio init:unix_dgram_socket write;
-

@@ -1,3 +1,0 @@
-allow sysfs_gpsdrv sysfs:filesystem associate;
-allow sysfs_msensord_daemon_file sysfs:filesystem associate;
-allow sysfs_sensor_file sysfs:filesystem associate;

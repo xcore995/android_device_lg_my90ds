@@ -1,4 +1,0 @@
-allow shell protect_f_data_file:dir getattr;
-allow shell protect_s_data_file:dir getattr;
-allow shell nvram_agent_binder_exec:file rx_file_perms;
-allow shell shell_exec:file getattr;

@@ -1,9 +1,0 @@
-allow mediaserver ccci_device:chr_file ioctl;
-allow mediaserver ccci_device:chr_file { read write open };
-allow mediaserver ebc_device:chr_file { read write open };
-allow mediaserver system_server:unix_stream_socket { read write };
-allow mediaserver fm_device:chr_file { read write ioctl open };
-allow mediaserver Vcodec_device:chr_file { ioctl open read write };
-allow mediaserver modem_prop:property_service set;
-allow mediaserver sensorservice_service:service_manager find;
-allow mediaserver camera_device:chr_file { read write open ioctl };

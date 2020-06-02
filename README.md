@@ -16,6 +16,4 @@ Camera  | 5MPx
 
 ![LG Magna](http://cdn.gadgets360.com/content/assets/products/lg-magna-2411_480X960_1439192736.jpg)
 
-This branch is for building Lineage 16.0 ROM.
-
-BUGS: led indicator
+This branch is for building TWRP recovery.

@@ -1,1 +1,0 @@
-allow shared_relro init:unix_dgram_socket write;

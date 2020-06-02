@@ -1,9 +1,0 @@
-allow servicemanager zygote:dir search;
-allow servicemanager zygote:file { read open };
-allow servicemanager zygote:process getattr;
-allow servicemanager lgpserver:dir search;
-allow servicemanager lgpserver:file {read open};
-allow servicemanager lgpserver:process { getattr };
-allow servicemanager ccci_rpcd:dir search;
-allow servicemanager ccci_rpcd:process { getattr };
-allow servicemanager ccci_rpcd:file {read open};

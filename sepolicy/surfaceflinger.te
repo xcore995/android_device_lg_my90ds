@@ -1,2 +1,0 @@
-allow surfaceflinger sw_sync_device:chr_file { read write ioctl open };
-allow surfaceflinger hwc_prop:property_service set;

@@ -1,8 +1,0 @@
-type ccci_rpcd, domain;
-type ccci_rpcd_exec, exec_type, file_type;
-init_daemon_domain(ccci_rpcd)
-allow ccci_rpcd ccci_rpcd_exec:file { read open getattr execute execute_no_trans};
-allow ccci_rpcd ccci_device:chr_file { rw_file_perms };
-allow ccci_rpcd sysfs:file { read open };
-allow ccci_rpcd sysfs_wake_lock:file { read write open };
-allow ccci_rpcd lgpserver_agent_service:service_manager { find };

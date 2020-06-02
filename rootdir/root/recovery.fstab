@@ -1,8 +1,0 @@
-/dev/misc		        /misc		emmc	defaults defaults
-/emmc@usrdata	/data		ext4	noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic wait,check,encryptable=footer
-/emmc@android	/system		ext4	ro,barrier=1                                                    wait
-/emmc@cache	/cache		ext4	noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic wait,check
-/dev/bootimg		    /boot		emmc	defaults defaults
-/dev/recovery		    /recovery	emmc	defaults defaults
-/dev/block/mmcblk1	    /sdcard		vfat	defaults defaults
-/dev/block/mmcblk1p1	/sdcard		vfat	defaults defaults

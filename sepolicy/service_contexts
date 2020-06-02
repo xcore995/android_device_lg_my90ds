@@ -1,5 +1,0 @@
-# ==============================================
-# MTK Policy Rule
-# ==============================================
-NvRAMAgent          u:object_r:nvram_agent_service:s0
-android.apps.ILGPService	   u:object_r:lgpserver_agent_service:s0

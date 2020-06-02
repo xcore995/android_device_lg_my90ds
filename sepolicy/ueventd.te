@@ -1,3 +1,0 @@
-allow ueventd device:chr_file {relabelfrom relabelto};
-
-

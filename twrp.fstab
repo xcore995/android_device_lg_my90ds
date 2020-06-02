@@ -1,0 +1,7 @@
+/boot		emmc	/dev/bootimg		    											flags=display="Boot";backup=1;flashimg=1
+/recovery	emmc	/dev/recovery														flags=display="Recovery";backup=0;flashimg=1
+/system		ext4	/emmc@android        												flags=display="System";backup=1
+/cache		ext4	/emmc@cache         												flags=display="Cache";backup=0
+/data		ext4	/emmc@usrdata														flags=display="Data";backup=1
+/external_sd vfat	/dev/block/mmcblk1p1	/dev/block/mmcblk1	                        flags=display="External SDcard";storage;removable;backup=0
+

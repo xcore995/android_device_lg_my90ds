@@ -16,6 +16,9 @@ $(call inherit-product, device/lge/my90ds/device.mk)
 # call the proprietary setup
 $(call inherit-product, vendor/lge/my90ds/my90ds-vendor.mk)
 
+# Initial Product Shipping API Level of the Device
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
+
 TARGET_BOOTANIMATION_HALF_RES := true
 
 ## Device identifier. This must come after all inclusions
